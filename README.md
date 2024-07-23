@@ -31,3 +31,5 @@
 ### 노션 페이지
 
 [아이스쿠루무 노션 메인 페이지](https://www.notion.so/cdc684bf4b314eb39b3fb8a3a161701c?pvs=4)
+
+[아이스쿠루무 프론트엔드 칸반보드 페이지](https://www.notion.so/74a4db78c7cd490cb57c5562d189a420?pvs=4)
