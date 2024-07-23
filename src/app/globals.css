@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: initial;
+  --background-start-rgb: initial;
+  --background-end-rgb: initial;
+}
+
+body {
+  color: initial;
+  background: initial;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: initial;
+  }
+}
