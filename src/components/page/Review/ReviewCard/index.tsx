@@ -1,5 +1,6 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import { CourseReview } from "types/review";
+import 'styles/review.css'
 
 interface ReviewProps {
     review: CourseReview;
@@ -8,13 +9,13 @@ interface ReviewProps {
 
 const ReviewCard = ({ review, renderStars }: ReviewProps) => {
     return (
-        <Card>
-            <CardContent>
+        <Card className="review-card">
+            <CardContent className="review-card-content">
                 <Typography>
-                    별점: {renderStars(review.rating, 15)} {/* 작은 크기로 별 이미지 표시 */}
+                    {review.content}
                 </Typography>
                 <Typography>
-                    리뷰 내용: {review.content}
+                    {renderStars(review.rating, 15)} {/* 작은 크기로 별 이미지 표시 */}
                 </Typography>
             </CardContent>
         </Card>

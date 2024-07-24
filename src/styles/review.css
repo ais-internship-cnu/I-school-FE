@@ -1,23 +1,33 @@
 
-  .average-rate {
+.average-rate {
     display: flex;
     align-items: center;
     margin: 16px;
     font-size: 18px;
-  }
+}
   
-  .star-image {
+.star-image {
     width: 20px; /* 원하는 크기로 조정 */
     height: 20px; /* 원하는 크기로 조정 */
     margin: 0 2px; /* 텍스트와 이미지 사이의 간격 조정 */
-  }
+}
   
-  .small-star-image {
+.small-star-image {
     width: 10px; /* 작은 별 크기로 조정 */
     height: 10px; /* 작은 별 크기로 조정 */
     margin: 0 1px; /* 텍스트와 이미지 사이의 간격 조정 */
-  }
+}
   
+.review-card {
+    border-radius: 0; /* 둥근 모서리 제거 */
+    box-shadow: none; /* 그림자 제거 */
+    border-bottom: 1px solid #ccc; /* 아래쪽 선 추가 */
+    margin-bottom: 10px; /* 카드 간 간격 조정 */
+}
+
+.review-card-content {
+    padding-bottom: 0; /* 아래쪽 여백 제거 */
+}
 
   
   
