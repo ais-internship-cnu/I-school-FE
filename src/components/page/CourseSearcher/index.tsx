@@ -7,12 +7,12 @@ interface CoarseSearcherProps {
   onChange: (value: string) => void;
 }
 
-const CoarseSearcher: React.FC<CoarseSearcherProps> = ({ placeholder, onChange }) => {
+const CoarseSearcher: React.FC<CoarseSearcherProps> = ({ placeholder}) => {
   const [value, setValue] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
-    onChange(event.target.value);
+    // onChange(event.target.value);
   };
 
   return (
