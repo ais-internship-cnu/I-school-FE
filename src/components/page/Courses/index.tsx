@@ -2,6 +2,7 @@ import { Grid } from "@mui/material"
 import 'styles/common.css'
 import PropTypes from 'prop-types'
 import react from 'react'
+import 'styles/course-search-style.css'
 
 interface CourseProps{
   courseName: string,
@@ -11,9 +12,11 @@ interface CourseProps{
 
 const Courses: React.FC<CourseProps> = ({ courseName, professor, rating }) => (
   <div className="course-block">
-    <h3>{courseName}</h3>
-    <p>Professor: {professor}</p>
-    <p>Rating: {rating} / 5</p>
+    <div>
+     <h3>{courseName}</h3>
+     <p>Professor: {professor}</p>
+     <p>Rating: {rating} / 5</p>
+    </div>
   </div>
 );
 

@@ -9,13 +9,13 @@ import 'styles/course-search-style.css'
 
 const CoursesPage = () => (
   <Page title="CoursesPage">
-    <div className="container">
-      <div className='position-direction'>
+    <div className="container component-arrangement">
+      <div>
         <CourseSearcher/>
       </div>
       <br></br>
       <div>
-        <Courses courseName={'알바천국'} professor={'ㅇㄱㄷ'} rating={0}/>
+        <Courses courseName={'ㅇㅇㅇㅇㅇㅇㅇㅇ'} professor={'ㅇㅇㅇ'} rating={0}/>
       </div>
       
       
