@@ -1,0 +1,23 @@
+
+  .average-rate {
+    display: flex;
+    align-items: center;
+    margin: 16px;
+    font-size: 18px;
+  }
+  
+  .star-image {
+    width: 20px; /* 원하는 크기로 조정 */
+    height: 20px; /* 원하는 크기로 조정 */
+    margin: 0 2px; /* 텍스트와 이미지 사이의 간격 조정 */
+  }
+  
+  .small-star-image {
+    width: 10px; /* 작은 별 크기로 조정 */
+    height: 10px; /* 작은 별 크기로 조정 */
+    margin: 0 1px; /* 텍스트와 이미지 사이의 간격 조정 */
+  }
+  
+
+  
+  
