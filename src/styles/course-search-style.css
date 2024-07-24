@@ -24,4 +24,9 @@
     border-radius: 5px;
     background-color: #fff;
   }
+
+  .fix-top{
+    position: absolute;
+    top: 10px;
+  }
   
