@@ -30,4 +30,25 @@
 }
 
   
-  
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.rating-title {
+    flex-grow: 1;
+}
+
+.rating-button {
+    background-color: #f06292; /* 버튼 색상 조정 */
+    color: white;
+    border-radius: 20px; /* 둥근 모서리 */
+    padding: 5px 15px;
+    text-transform: none; /* 버튼 텍스트 소문자로 유지 */
+}
+
+.rating-button:hover {
+    background-color: #ec407a; /* 버튼 호버 색상 조정 */
+}
