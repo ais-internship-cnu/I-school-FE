@@ -1,8 +1,8 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { Review } from "types/review";
+import { CourseReview } from "types/review";
 
 interface ReviewProps {
-    review: Review
+    review: CourseReview
 }
 
 const ReviewCard = ({review}:ReviewProps) => {
@@ -33,13 +33,13 @@ const ReviewCard = ({review}:ReviewProps) => {
         <Card>
             <CardContent>
                 <Typography>
-                    {maskString(review.course_name)}
+                    리뷰 ID: {review.courseReviewId}
                 </Typography>
                 <Typography>
-                    {createRatingStar(review.review_star)}
+                    별점 개수: {review.rating}
                 </Typography>
                 <Typography>
-                    {review.review_content}
+                    리뷰 내용: {review.content}
                 </Typography>
             </CardContent>
         </Card>
