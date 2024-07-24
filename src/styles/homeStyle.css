@@ -1,0 +1,55 @@
+.container {
+  text-align: center;
+  padding: 1rem;
+  background: white;
+}
+
+.title {
+  font-size: 2rem;
+  color: #ff69b4;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button {
+  background: #f0f0f0;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: #e0e0e0;
+}
+
+.button img {
+  max-width: 50px;
+  margin-bottom: 1rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
