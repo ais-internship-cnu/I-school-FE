@@ -2,17 +2,13 @@
 
 import Page from 'app/page'
 import Example from 'components/page/Example'
-import 'styles/common.css'
+import 'styles/common.styles'
 
 
-const ExamplePage = () => {
-  return(
-    <div className='container'>
-      <Page title="ExamplePage">
-        <Example/>
-      </Page>
-    </div>
-  )
-}
+const ExamplePage = () => (
+  <Page title="ExamplePage">
+    <Example/>
+  </Page>
+)
 
 export default ExamplePage
