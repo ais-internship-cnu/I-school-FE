@@ -1,29 +1,26 @@
-import { Grid } from "@mui/material"
-import 'styles/common.css'
-import PropTypes from 'prop-types'
-import react from 'react'
-import 'styles/course-search-style.css'
+import React from 'react';
+import { Grid } from '@mui/material';
+import CourseBlock from 'components/page/Courses/CourseBlock';
+import 'styles/course-search-style.css';
 
-interface CourseProps{
-  courseName: string,
-  professor: string,
-  rating: number
+interface Course {
+  courseName: string;
+  professor: string;
+  rating: number;
 }
 
-const Courses: React.FC<CourseProps> = ({ courseName, professor, rating }) => (
-  <div className="course-block">
-    <div>
-     <h3>{courseName}</h3>
-     <p>Professor: {professor}</p>
-     <p>Rating: {rating} / 5</p>
-    </div>
-  </div>
+const Courses: React.FC<{ courses: Course[] }> = ({ courses }) => (
+  <Grid container direction="column" spacing={2}>
+    {courses.map((course, index) => (
+      <Grid item key={index}>
+        <CourseBlock
+          courseName={course.courseName}
+          professor={course.professor}
+          rating={course.rating}
+        />
+      </Grid>
+    ))}
+  </Grid>
 );
 
-Courses.propTypes = {
-  courseName: PropTypes.string.isRequired,
-  professor: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-};
-
-export default Courses
+export default Courses;

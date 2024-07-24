@@ -11,11 +11,13 @@ const CoursesPage = () => (
   <Page title="CoursesPage">
     <div className="container component-arrangement">
       <div>
-        <CourseSearcher/>
+        <CourseSearcher placeholder={'교수명, 강의명 검색'} onChange={function (value: string): void {
+          throw new Error('Function not implemented.')
+        } }/>
       </div>
       <br></br>
       <div>
-        <Courses courseName={'ㅇㅇㅇㅇㅇㅇㅇㅇ'} professor={'ㅇㅇㅇ'} rating={0}/>
+        <Courses courses={[]}/>
       </div>
       
       

@@ -8,7 +8,7 @@
   }
   
   .search-bar {
-    width: 100%;
+    width: 250px;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 5px;
@@ -17,6 +17,7 @@
   }
   
   .course-block {
+    width: 330px;
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
