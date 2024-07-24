@@ -1,7 +1,7 @@
 import axios from 'axios'
 import MockAdapter from "axios-mock-adapter"
 import { API } from 'constant/api'
-import { mockFormData } from 'mocks/employeeMock'
+import { mockFormData_Review } from 'mocks/reviewMock'
 
 const ENV = process.env.NODE_ENV
 
@@ -11,5 +11,5 @@ export const api = axios.create({
 
 if (ENV === 'development') {
     const mockAxios = new MockAdapter(api)
-    mockAxios.onGet(API.PRACTICE_TEST).reply(200, mockFormData)
+    mockAxios.onGet(API.COURSER_REVIEW).reply(200, mockFormData_Review)
 } 

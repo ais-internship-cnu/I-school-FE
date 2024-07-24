@@ -1,6 +1,7 @@
-import usePractice from './usePractice'
+import useReview from './useReview'
+
 
 export {
-  usePractice,
+  useReview
 }
 
