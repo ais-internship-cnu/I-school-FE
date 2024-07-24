@@ -29,6 +29,8 @@ const ReviewCard = ({review}:ReviewProps) => {
         return visiblePart + maskedPart
     }
 
+    
+
     return (
         <Card>
             <CardContent>
