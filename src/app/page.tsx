@@ -12,7 +12,7 @@ type Props = {
 const Page = ({ title, children }: Props) => {
   return (
     <>
-      <title>{`${title} | 入室管理システム`}</title>
+      <title>{`${title}`}</title>
       <Provider store={store}>
         {children}
       </Provider>
