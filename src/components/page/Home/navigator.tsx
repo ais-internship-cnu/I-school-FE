@@ -21,17 +21,22 @@ const StyledBottomNavigation = styled(BottomNavigation)({
   height: '60px', // 네비게이션 바의 높이와 맞춤
 });
 
-const StyledBottomNavigationAction = styled(BottomNavigationAction)({
+const StyledBottomNavigationAction = styled(BottomNavigationAction, {
+  shouldForwardProp: (prop) => prop !== 'selected',
+})(({ selected }) => ({
   minWidth: '0px', // 아이콘과 텍스트 사이의 간격을 줄임
   maxWidth: '100px', // 각 아이템의 최대 너비를 설정
+  color: selected ? '#ff69b4' : '#cccccc', // 선택된 아이템은 진한 분홍색, 그렇지 않은 아이템은 연한 분홍색
   '& .MuiBottomNavigationAction-label': {
     fontSize: '10px', // 텍스트 크기 조정
     paddingTop: '2px', // 텍스트와 아이콘 사이의 간격 조정
+    fontWeight: selected ? 'bold' : 'normal', // 선택된 아이템은 굵은 글씨, 그렇지 않은 아이템은 일반 글씨
   },
   '& .MuiSvgIcon-root': {
     fontSize: '24px', // 아이콘 크기 조정
+    color: selected ? '#ff69b4' : '#cccccc', // 선택된 아이콘은 진한 분홍색, 그렇지 않은 아이콘은 연한 분홍색
   },
-});
+}));
 
 const NavBar = () => {
   const [value, setValue] = React.useState(0);
@@ -46,9 +51,21 @@ const NavBar = () => {
           }}
           showLabels
         >
-          <StyledBottomNavigationAction label="홈" icon={<HomeIcon />} />
-          <StyledBottomNavigationAction label="시간표" icon={<ScheduleIcon />} />
-          <StyledBottomNavigationAction label="마이페이지" icon={<AccountCircleIcon />} />
+          <StyledBottomNavigationAction
+            label="홈"
+            icon={<HomeIcon />}
+            selected={value === 0}
+          />
+          <StyledBottomNavigationAction
+            label="시간표"
+            icon={<ScheduleIcon />}
+            selected={value === 1}
+          />
+          <StyledBottomNavigationAction
+            label="마이페이지"
+            icon={<AccountCircleIcon />}
+            selected={value === 2}
+          />
         </StyledBottomNavigation>
       </Toolbar>
     </StyledAppBar>
