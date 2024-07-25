@@ -5,9 +5,10 @@ import 'styles/course-search-style.css';
 interface CoarseSearcherProps {
   placeholder: string;
   onChange: (value: string) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
-const CoarseSearcher: React.FC<CoarseSearcherProps> = ({ placeholder, onChange}) => {
+const CoarseSearcher: React.FC<CoarseSearcherProps> = ({ placeholder, onChange, onKeyDown}) => {
   const [value, setValue] = useState('');
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,6 +23,7 @@ const CoarseSearcher: React.FC<CoarseSearcherProps> = ({ placeholder, onChange})
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
+      onKeyDown={onKeyDown}
       className="search-bar"
     />
   );
