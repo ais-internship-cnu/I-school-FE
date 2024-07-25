@@ -58,16 +58,17 @@
     margin: 2px 1px;
   }
   .search-button {
-    background-color: #ffa3ee;
+    background-color: #ff85a2;
     border: none;
     color: white;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   .search-button:hover {
-    background-color: #45a049;
+    background-color: #fd7f94;
   }
 
   .courses-container {
