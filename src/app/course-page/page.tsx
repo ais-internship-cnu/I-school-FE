@@ -29,7 +29,7 @@ const CoursesPage = () => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      handleSearch(searchInput);
+      handleSearch(textInput);
     }
   }
 
@@ -40,7 +40,7 @@ const CoursesPage = () => {
           <div className="header">강의실</div>
           <div className="search-bar-and-search-button">
             <CourseSearcher placeholder="교수명, 강의명 검색" onChange={handleTextInputChange} onKeyDown={handleKeyDown} />
-            <button className="search-button" onClick={() => handleSearch(searchInput)}>검색</button>
+            <button className="search-button" onClick={() => handleSearch(textInput)}>검색</button>
           </div>
         </div>
         <div className="courses-container">
