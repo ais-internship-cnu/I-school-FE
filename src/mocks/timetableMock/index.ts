@@ -1,4 +1,4 @@
-import { Course, Timetable, TimetableState } from 'types/timetable';
+import { Course, Timetable, TimetableState } from 'types/timetable'
 
 export const mockCourses: Course[] = [
   {
@@ -46,13 +46,13 @@ export const mockCourses: Course[] = [
     courseStartTime: '11:00',
     courseEndTime: '12:30'
   }
-];
+]
 
 export const mockTimetable: Timetable = {
   timetalbeId: 1,
   courses: mockCourses
-};
+}
 
 export const mockTimetableState: TimetableState = {
   timetableList: mockCourses
-};
+}
