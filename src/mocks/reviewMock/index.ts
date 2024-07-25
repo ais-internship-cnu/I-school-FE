@@ -21,4 +21,19 @@ export const mockFormData_Review: CourseReview[] = [
     rating: 5,
     content: '학점을 잘 주십니다!!',
   },
+  {
+    courseReviewId: 5,
+    rating: 5,
+    content: '학점을 잘 주십니다!!',
+  },
+  {
+    courseReviewId: 6,
+    rating: 5,
+    content: '학점을 잘 주십니다!!',
+  },
+  {
+    courseReviewId: 7,
+    rating: 5,
+    content: '학점을 잘 주십니다!!',
+  },
 ];

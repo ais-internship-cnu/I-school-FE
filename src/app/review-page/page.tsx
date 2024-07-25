@@ -2,6 +2,7 @@
 
 import Page from 'app/page'
 import Review from 'components/page/Review'
+import AverageStar from 'components/page/Review/AverageStar'
 import Header from 'components/page/Review/header'
 import SimpleBottomNavigation from 'components/page/Review/navigation'
 
@@ -11,6 +12,7 @@ const ReviewPage = () => {
     <Page title="ReviewPage">
       
       <Header/>
+      <AverageStar />
       <Review/>
       <SimpleBottomNavigation/>
     </Page>
