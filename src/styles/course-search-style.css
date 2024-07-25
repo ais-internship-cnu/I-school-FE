@@ -40,37 +40,49 @@
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
-  .search-bar-and-search-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; /* 검색창과 버튼 사이의 간격 조절 */
-  }
-  .search-bar {
-    width: 250px;
-    padding: 8px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    border: 2px solid #8f8f8f;
-    margin: 2px 1px;
-    background-color:hsl(351, 100%, 96%)
-  }
-  .search-button {
-    background-color: #ff85a2;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  .search-button:hover {
-    background-color: #fd7f94;
-  }
+  /* 검색창과 버튼을 감싸는 컨테이너 */
+.search-container {
+  position: relative;
+}
+.search-container-alignment {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 300px;
+  padding:8px 10px;
+  
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid #8f8f8f;
+  background-color: hsl(341, 91%, 82%);
+  font-size: 16px; /* 폰트 크기 설정 */
+}
+
+/* 검색 버튼 스타일 */
+.search-button {
+  position: absolute;
+  right: 10px; /* 검색창 내부 오른쪽 끝에 위치 */
+  top: 50%;
+  background-color: transparent;
+  transform: translateY(-50%);
+  border: none;
+  color: black;
+  padding: 4px;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+}
+
 
   .courses-container {
     width: 100%;
