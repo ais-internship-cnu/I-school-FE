@@ -1,5 +1,6 @@
 export type Course = {
     courseId: number;
+    courseCode: string;
     courseName: string;
     courseRoom: string;
     courseDay: string;

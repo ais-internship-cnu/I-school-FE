@@ -23,6 +23,7 @@
     box-shadow: none; /* 그림자 제거 */
     border-bottom: 1px solid #ccc; /* 아래쪽 선 추가 */
     margin-bottom: 10px; /* 카드 간 간격 조정 */
+    width: 353px;
 }
 
 .review-card-content {
@@ -34,7 +35,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0px 20px;
+    width: 353px;
 }
 
 .rating-title {
@@ -53,7 +55,3 @@
     background-color: #ec407a; /* 버튼 호버 색상 조정 */
 }
 
-.navi{
-    width: 353px;
-    border-top: 1px solid #ccc; /* 위쪽 선 추가 */
-}
