@@ -8,7 +8,7 @@
 }
   
 .course-block {
-  width: 330px;
+  width: 100%;
   border: 1px solid #cccccc; /* 다른 경계선 추가 */
   padding: 5px; /* 패딩을 추가하여 내부 여백 조절 */
   margin-bottom: 0px; /* 아래쪽에 여백 제거 */
