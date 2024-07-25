@@ -28,19 +28,20 @@ const CoursesPage = () => {
 
   return (
     <Page title="CoursesPage">
-      <div className="component-arrangement">
-        <div className="fix-top">
-          <div className="search-bar-and-search-button">
+    <div className="component-arrangement">
+      <div className="fix-top">
+        <div className="header">강의실</div>
+        <div className="search-bar-and-search-button">
           <CourseSearcher placeholder="교수명, 강의명 검색" onChange={handleTextInputChange} />
           <button className="search-button" onClick={() => handleSearch(searchInput)}>검색</button>
-          </div>
-        </div>
-        <div>
-          <Courses courses={filteredCourses} />
         </div>
       </div>
-    </Page>
-  );
+      <div className="courses-container">
+        <Courses courses={filteredCourses} />
+      </div>
+    </div>
+  </Page>
+);
 }
 
 export default CoursesPage;
