@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Page from 'app/page';
 import Courses from 'components/page/Courses';
-import CourseSearcher from 'components/page/CourseSearcher';
+import CourseSearcher from 'components/page/Courses/CourseSearcher';
 import { mockCourses } from 'mocks/reviewMock/mockData'; // Import mock data
 import 'styles/common.css';
 import 'styles/course-search-style.css';

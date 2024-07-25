@@ -19,7 +19,7 @@ const CoarseSearcher: React.FC<CoarseSearcherProps> = ({ placeholder, onChange, 
   return (
     <input
       type="text"
-      maxLength={8}
+      maxLength={10}
       placeholder={placeholder}
       value={value}
       onChange={handleChange}
