@@ -21,9 +21,17 @@ const CoursesPage = () => {
     setFilteredCourses(filtered);
   };
 
+  var textInput=""
+
   const handleTextInputChange = (value: string) => {
-    setSearchInput(value);
+    textInput=value;
   };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      handleSearch(searchInput);
+    }
+  }
 
   return (
     <Page title="CoursesPage">
