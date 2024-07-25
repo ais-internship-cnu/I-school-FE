@@ -1,9 +1,15 @@
-export type Review = {
-    course_name: string,
-    review_star: number,
-    review_content: string,
+export type CourseReview = {
+    courseReviewId: number,
+    rating: number,
+    content: string,
+}
+
+export type Course = {
+    courseId: number,
+    courseName: string,
+    courseReviews: CourseReview[],
 }
 
 export type ReviewState = {
-    reviewList: Review[]
+    reviewList: CourseReview[]
 }

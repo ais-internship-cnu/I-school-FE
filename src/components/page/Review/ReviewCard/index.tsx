@@ -1,50 +1,25 @@
 import { Card, CardContent, Typography } from "@mui/material";
-import { Review } from "types/review";
+import { CourseReview } from "types/review";
+import 'styles/review.css'
 
 interface ReviewProps {
-    review: Review
+    review: CourseReview;
+    renderStars: (rating: number, size?: number) => JSX.Element[];
 }
 
-const ReviewCard = ({review}:ReviewProps) => {
-
-    const createRatingStar = (rating:number) => {
-
-        let star:string = ''
-
-        for(let i=0; i<rating; i++){
-            star = star + '★'
-        }
-
-        return star
-    }
-
-    const maskString = (userId:string) => {
-        if(userId.length <= 2) {
-            return userId; // 문자열의 길이가 2 이하인 경우, 문자열 전체를 반환한다.
-        }
-
-        const visiblePart = userId.slice(0,2);
-        const maskedPart = "***"
-
-        return visiblePart + maskedPart
-    }
-
+const ReviewCard = ({ review, renderStars }: ReviewProps) => {
     return (
-        <Card>
-            <CardContent>
+        <Card className="review-card">
+            <CardContent className="review-card-content">
                 <Typography>
-                    {maskString(review.course_name)}
+                    {review.content}
                 </Typography>
                 <Typography>
-                    {createRatingStar(review.review_star)}
-                </Typography>
-                <Typography>
-                    {review.review_content}
+                    {renderStars(review.rating, 15)} {/* 작은 크기로 별 이미지 표시 */}
                 </Typography>
             </CardContent>
         </Card>
-    )
-
+    );
 }
 
-export default ReviewCard
+export default ReviewCard;
