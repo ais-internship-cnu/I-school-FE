@@ -2,6 +2,6 @@
 export type ReviewRegister = {
     // userId: number;
     // courseId: number;
-    rating: number;
-    content: string;
+    food: string ;
+    img: string;
 }

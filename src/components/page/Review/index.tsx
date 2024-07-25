@@ -55,11 +55,11 @@ const Example = () => {
             <Typography className="average-rate">
                 평균 별점: {renderStars(averageRating)} {averageRating}
             </Typography>
-            {reviewList.map((item: CourseReview) => (
+            {/* {reviewList.map((item: CourseReview) => (
                 <Box key={item.courseReviewId} className="review-card-wrapper">
                     <ReviewCard review={item} renderStars={renderStars} />
                 </Box>
-            ))}
+            ))} */}
         </Grid>
     );
 }
