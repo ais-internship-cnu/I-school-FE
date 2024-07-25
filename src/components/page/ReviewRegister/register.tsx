@@ -18,12 +18,6 @@ const register = () => {
     console.log(`Food: ${food}, Img: ${img}`);
   };
 
-//   const onPlus = () => {
-//     console.log('onplus')
-//     setReview(food);
-//   };
-
-  
   return (
     <form onSubmit={onSubmit}>
         <Box className="star-rating">
@@ -47,7 +41,7 @@ const register = () => {
           className="rating-textarea"
           onChange={(event) => setFood(event.target.value)} // 텍스트 필드 내용 업데이트
         />
-        <Button className="submit-button" type="submit">제출</Button>
+        <Button className="submit-button" type="submit">평가하기</Button>
     </form>
   );
 };
