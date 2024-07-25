@@ -53,14 +53,17 @@
 }
 
 .search-bar {
-  width: 300px;
+  width: 320px;
   padding:8px 10px;
-  
+  border: 0px;
   box-sizing: border-box;
-  border-radius: 5px;
-  border: 2px solid #8f8f8f;
-  background-color: hsl(341, 91%, 82%);
+  border-radius: 10px;
+  background-color: hsl(0, 0%, 60%);
+  color: black;
   font-size: 16px; /* 폰트 크기 설정 */
+}
+.search-bar::placeholder {
+  color: black; /* placeholder 텍스트 색상 */
 }
 
 /* 검색 버튼 스타일 */

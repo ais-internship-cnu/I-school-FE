@@ -39,7 +39,7 @@ const CoursesPage = () => {
         <div className="fix-top">
           <div className="header">강의실</div>
           <div className="search-container-alignment">
-            <CourseSearcher placeholder="교수명, 강의명 검색" 
+            <CourseSearcher placeholder="교수명, 강의명 검색"  
               onChange={handleTextInputChange} 
                 onKeyDown={handleKeyDown} 
                   onClick={() => handleSearch(textInput)} />
