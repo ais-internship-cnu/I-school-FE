@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/course-search-style.css';
+import { Rating, Typography, Box } from "@mui/material";
+import 'styles/review-register.css';
 
 interface CourseBlockProps {
   courseName: string;
@@ -17,7 +19,15 @@ const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating
     <button className="course-block" onClick={handleClick}>
       <h3>{courseName}</h3>
       <p>Professor: {professor}</p>
-      <p>Rating: {rating} / 5</p>
+      <p>
+      <Rating
+                name="course-rating"
+                value={rating}
+                size="small"
+                precision={0.1}
+                readOnly
+            />
+      </p>
     </button>
   );
 };
