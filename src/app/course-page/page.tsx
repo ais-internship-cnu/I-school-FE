@@ -25,12 +25,6 @@ const CoursesPage = () => {
     setSearchInput(value);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      handleSearch(searchInput);
-    }
-  };
-
   return (
     <Page title="CoursesPage">
       <div className="component-arrangement">

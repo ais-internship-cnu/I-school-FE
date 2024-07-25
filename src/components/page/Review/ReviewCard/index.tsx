@@ -1,13 +1,14 @@
-import { Card, CardContent, Typography } from "@mui/material";
-import { CourseReview } from "types/review";
+import { Card, CardContent, Typography } from "@mui/material"
+import { CourseReview } from "types/review"
 import 'styles/review.css'
+import Star from "components/common/Star"
+
 
 interface ReviewProps {
     review: CourseReview;
-    renderStars: (rating: number, size?: number) => JSX.Element[];
 }
 
-const ReviewCard = ({ review, renderStars }: ReviewProps) => {
+const ReviewCard = ({ review }: ReviewProps) => {
     return (
         <Card className="review-card">
             <CardContent className="review-card-content">
@@ -15,11 +16,11 @@ const ReviewCard = ({ review, renderStars }: ReviewProps) => {
                     {review.content}
                 </Typography>
                 <Typography>
-                    {renderStars(review.rating, 15)} {/* 작은 크기로 별 이미지 표시 */}
+                    <Star rating={review.rating} size={15} /> {/* 작은 크기로 별 이미지 표시 */}
                 </Typography>
             </CardContent>
         </Card>
-    );
+    )
 }
 
-export default ReviewCard;
+export default ReviewCard
