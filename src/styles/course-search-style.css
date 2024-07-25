@@ -58,7 +58,7 @@
   border: 0px;
   box-sizing: border-box;
   border-radius: 10px;
-  background-color: hsl(0, 1%, 76%);
+  background-color: #eeeeee;
   color: black;
   font-size: 16px; /* 폰트 크기 설정 */
   outline: none;
@@ -89,9 +89,9 @@
 
 
   .courses-container {
-    width: 100%;
+    width: 90%;
     max-width: 800px;
-    max-height: 700px;
+    max-height: 550px;
     overflow-y: auto;
     margin-top: 0px;
     overflow-x: hidden;
