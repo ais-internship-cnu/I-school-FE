@@ -1,7 +1,7 @@
 // Timetable/TimetableCard/index.tsx
-import React from 'react';
-import { Card, CardContent, Typography } from '@mui/material';
-import { Course } from 'types/timetable';
+import React from 'react'
+import { Card, CardContent, Typography } from '@mui/material'
+import { Course } from 'types/timetable'
 
 interface TimetableProps {
   course: Course;
@@ -10,7 +10,7 @@ interface TimetableProps {
 
 const TimetableCard = ({ course, backgroundColor }: TimetableProps) => {
   return (
-    <Card
+    <Card 
       className="timetable-card"
       style={{
         backgroundColor: backgroundColor, // 배경색 설정
@@ -18,16 +18,16 @@ const TimetableCard = ({ course, backgroundColor }: TimetableProps) => {
         boxShadow: 'none', // 그림자 없애기 (선택 사항)
       }}
     >
-      <CardContent>
-        <Typography variant="body2" align="center">
+      <CardContent sx={{ padding: 0 }}>
+        <Typography className='course-name'>
           {course.courseName}
         </Typography>
-        <Typography variant="body2" align="center">
+        <Typography className='course-room'>
           {course.courseRoom}
         </Typography>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
-export default TimetableCard;
+export default TimetableCard
