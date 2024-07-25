@@ -1,4 +1,4 @@
-import { Typography, Button, Grid } from "@mui/material";
+import { Typography, Button, Grid, Link } from "@mui/material";
 import 'styles/review-register.css';
 
 const Header = () => {
@@ -11,9 +11,11 @@ const Header = () => {
                 </Typography>
             </Grid>
             <Grid item xs={4} container justifyContent="flex-end">
-                <Button variant="contained" className="rating-button">
-                    평가하기
-                </Button>
+                <Link href="#">
+                    <Button variant="contained" className="rating-button">
+                        평가하기
+                    </Button>
+                </Link>
             </Grid>
         </Grid>
     );

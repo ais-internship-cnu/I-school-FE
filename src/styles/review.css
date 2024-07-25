@@ -52,3 +52,8 @@
 .rating-button:hover {
     background-color: #ec407a; /* 버튼 호버 색상 조정 */
 }
+
+.navi{
+    width: 353px;
+    border-top: 1px solid #ccc; /* 위쪽 선 추가 */
+}
