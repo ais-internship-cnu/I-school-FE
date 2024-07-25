@@ -17,7 +17,7 @@ export const createReviewList = createAsyncThunk(
   }
 )
 
-export const createCourseReview = createAsyncThunk(
+export const createCourseReview = createAsyncThunk( // 정빈 추가 부분 API POST요청 보내기
   'registration/createCourseReview',
   async (data: ReviewRegister, { rejectWithValue }
   ) => {

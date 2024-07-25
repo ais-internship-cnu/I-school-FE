@@ -5,7 +5,6 @@ import "styles/review-register.css";
 
 const register = () => {
   const [food, setFood] = useState(''); // 텍스트 필드의 내용을 저장할 상태 변수
-//   const [img, setContent] = useState("test8");
   const [star, setStar] = useState<number | null>(0);
 
   const { onCreateReview } = useReview();
