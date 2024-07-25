@@ -38,6 +38,8 @@ const StyledBottomNavigationAction = styled(BottomNavigationAction, {
   },
 }));
 
+
+
 const NavBar = () => {
   const [value, setValue] = React.useState(0);
 
@@ -51,6 +53,7 @@ const NavBar = () => {
           }}
           showLabels
         >
+
           <StyledBottomNavigationAction
             label="홈"
             icon={<HomeIcon />}
