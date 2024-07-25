@@ -3,6 +3,8 @@
 import Page from 'app/page'
 import Review from 'components/page/Review'
 import Header from 'components/page/Review/header'
+import SimpleBottomNavigation from 'components/page/Review/navigation'
+
 
 const ReviewPage = () => {
   return(
@@ -10,7 +12,7 @@ const ReviewPage = () => {
       
       <Header/>
       <Review/>
-      
+      <SimpleBottomNavigation/>
     </Page>
   )
 }
