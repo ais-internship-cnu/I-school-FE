@@ -8,13 +8,19 @@ interface CourseBlockProps {
   rating: number;
 }
 
-const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating }) => (
-  <div className="course-block">
-    <h3>{courseName}</h3>
-    <p>Professor: {professor}</p>
-    <p>Rating: {rating} / 5</p>
-  </div>
-);
+const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating }) => {
+  const handleClick = () => {
+    window.location.href = `/course-details/${courseName}`;
+  };
+
+  return (
+    <button className="course-block" onClick={handleClick}>
+      <h3>{courseName}</h3>
+      <p>Professor: {professor}</p>
+      <p>Rating: {rating} / 5</p>
+    </button>
+  );
+};
 
 CourseBlock.propTypes = {
   courseName: PropTypes.string.isRequired,

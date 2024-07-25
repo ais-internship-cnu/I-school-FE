@@ -11,6 +11,7 @@ import 'styles/course-search-style.css';
 const CoursesPage = () => {
   const [courses, setCourses] = useState(mockCourses);
   const [filteredCourses, setFilteredCourses] = useState(courses);
+  const [searchInput, setSearchInput] = useState('');
 
   const handleSearch = (searchTerm: string) => {
     const filtered = courses.filter(course =>
@@ -20,29 +21,26 @@ const CoursesPage = () => {
     setFilteredCourses(filtered);
   };
 
-  var searchInput = '';
-
   const handleTextInputChange = (value: string) => {
-    searchInput = value;
+    setSearchInput(value);
   };
 
   return (
     <Page title="CoursesPage">
-    <div className="component-arrangement">
-      <div className="fix-top">
-        <div className="header">강의실</div>
-        <div className="search-bar-and-search-button">
-          <CourseSearcher placeholder="교수명, 강의명 검색" onChange={handleTextInputChange} />
-          <button className="search-button" onClick={() => handleSearch(searchInput)}>검색</button>
+      <div className="component-arrangement">
+        <div className="fix-top">
+          <div className="header">강의실</div>
+          <div className="search-bar-and-search-button">
+            <CourseSearcher placeholder="교수명, 강의명 검색" onChange={handleTextInputChange} />
+            <button className="search-button" onClick={() => handleSearch(searchInput)}>검색</button>
+          </div>
+        </div>
+        <div className="courses-container">
+          <Courses courses={filteredCourses} />
         </div>
       </div>
-      <div className="courses-container">
-        <Courses courses={filteredCourses} />
-      </div>
-    </div>
-  </Page>
-);
+    </Page>
+  );
 }
 
 export default CoursesPage;
-
