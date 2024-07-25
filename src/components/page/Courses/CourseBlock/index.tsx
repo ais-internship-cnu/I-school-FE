@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'styles/course-search-style.css';
+import { Rating } from '@mui/material';
 
 interface CourseBlockProps {
   courseName: string;

@@ -10,7 +10,7 @@ interface Course {
 }
 
 const Courses: React.FC<{ courses: Course[] }> = ({ courses }) => (
-  <Grid container direction="column" spacing={2}>
+  <Grid container direction="column" spacing={0}>
     {courses.map((course, index) => (
       <Grid item key={index}>
         <CourseBlock
