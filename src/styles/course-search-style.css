@@ -56,6 +56,7 @@
     border-radius: 5px;
     border: 2px solid #8f8f8f;
     margin: 2px 1px;
+    background-color:hsl(351, 100%, 96%)
   }
   .search-button {
     background-color: #ff85a2;
@@ -65,7 +66,7 @@
     font-size: 16px;
     cursor: pointer;
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   .search-button:hover {
     background-color: #fd7f94;
@@ -74,7 +75,7 @@
   .courses-container {
     width: 100%;
     max-width: 800px;
-    max-height: 600px;
+    max-height: 700px;
     overflow-y: auto;
     margin-top: 0px;
     overflow-x: hidden;

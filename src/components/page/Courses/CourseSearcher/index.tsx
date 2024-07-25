@@ -26,6 +26,7 @@ const CoarseSearcher: React.FC<CoarseSearcherProps> = ({ placeholder, onChange, 
       onKeyDown={onKeyDown}
       className="search-bar"
     />
+    
   );
 };
 
