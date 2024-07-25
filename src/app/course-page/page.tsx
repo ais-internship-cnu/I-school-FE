@@ -20,18 +20,20 @@ const CoursesPage = () => {
     setFilteredCourses(filtered);
   };
 
+  var searchInput = '';
+
   const handleTextInputChange = (value: string) => {
-    handleSearch(value);
+    searchInput = value;
   };
 
   return (
     <Page title="CoursesPage">
-      <div className="container component-arrangement">
+      <div className="component-arrangement">
         <div className="fix-top">
+          <div className="search-bar-and-search-button">
           <CourseSearcher placeholder="교수명, 강의명 검색" onChange={handleTextInputChange} />
-          <button onClick={() => handleSearch('')}>
-            검색
-          </button>
+          <button className="search-button" onClick={() => handleSearch(searchInput)}>검색</button>
+          </div>
         </div>
         <div>
           <Courses courses={filteredCourses} />
