@@ -18,14 +18,14 @@ const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating
   return (
     <button className="course-block" onClick={handleClick}>
       <h3>{courseName}</h3>
-      <p>Professor: {professor}</p>
+      <p>{professor} 교수님</p>
       <p>
       <Rating
                 name="course-rating"
                 value={rating}
-                size="small"
-                precision={0.1}
+                precision={0.5}
                 readOnly
+                sx={{ fontSize: '0.8rem' }} // 크기 조정을 위한 추가 스타일
             />
       </p>
     </button>
