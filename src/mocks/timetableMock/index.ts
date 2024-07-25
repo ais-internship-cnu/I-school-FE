@@ -3,27 +3,48 @@ import { Course, Timetable, TimetableState } from 'types/timetable';
 export const mockCourses: Course[] = [
   {
     courseId: 1,
-    courseName: 'Mathematics',
-    courseRoom: 'Room 101',
+    courseCode: 'ECE3026', // 추가된 courseCode
+    courseName: '네트워크',
+    courseRoom: '공7 - 118',
     courseDay: 'Monday',
-    courseStartTime: '09:00',
-    courseEndTime: '10:30'
+    courseStartTime: '10:00',
+    courseEndTime: '12:30'
   },
   {
     courseId: 2,
-    courseName: 'Physics',
-    courseRoom: 'Room 102',
+    courseCode: 'ECE4086', // 추가된 courseCode
+    courseName: '캡디',
+    courseRoom: '공7 - 218',
     courseDay: 'Tuesday',
     courseStartTime: '11:00',
     courseEndTime: '12:30'
   },
   {
     courseId: 3,
-    courseName: 'Chemistry',
-    courseRoom: 'Room 103',
+    courseCode: 'ECE3088', // 추가된 courseCode
+    courseName: '임베디드',
+    courseRoom: '공7-218',
     courseDay: 'Wednesday',
     courseStartTime: '13:00',
     courseEndTime: '14:30'
+  },
+  {
+    courseId: 4,
+    courseCode: 'ECE3026', // 같은 courseCode
+    courseName: '네트워크',
+    courseRoom: '공7 - 118',
+    courseDay: 'Wednesday',
+    courseStartTime: '10:00',
+    courseEndTime: '12:30'
+  },
+  {
+    courseId: 5,
+    courseCode: 'ECE4086', // 추가된 courseCode
+    courseName: '캡디',
+    courseRoom: '공7 - 218',
+    courseDay: 'Thursday',
+    courseStartTime: '11:00',
+    courseEndTime: '12:30'
   }
 ];
 
