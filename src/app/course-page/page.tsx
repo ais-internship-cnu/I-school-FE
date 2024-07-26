@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Page from 'app/page';
 import Courses from 'components/page/Courses';
-import CourseSearcher from 'components/page/CourseSearcher';
+import CourseSearcher from 'components/page/Courses/CourseSearcher';
 import { mockCourses } from 'mocks/reviewMock/mockData'; // Import mock data
 import 'styles/common.css';
 import 'styles/course-search-style.css';
@@ -21,13 +21,15 @@ const CoursesPage = () => {
     setFilteredCourses(filtered);
   };
 
+  var textInput=""
+
   const handleTextInputChange = (value: string) => {
-    setSearchInput(value);
+    textInput=value;
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
-      handleSearch(searchInput);
+      handleSearch(textInput);
     }
   }
 
@@ -36,9 +38,11 @@ const CoursesPage = () => {
       <div className="component-arrangement">
         <div className="fix-top">
           <div className="header">강의실</div>
-          <div className="search-bar-and-search-button">
-            <CourseSearcher placeholder="교수명, 강의명 검색" onChange={handleTextInputChange} onKeyDown={handleKeyDown} />
-            <button className="search-button" onClick={() => handleSearch(searchInput)}>검색</button>
+          <div className="search-container-alignment">
+            <CourseSearcher placeholder="교수명, 강의명 검색"  
+              onChange={handleTextInputChange} 
+                onKeyDown={handleKeyDown} 
+                  onClick={() => handleSearch(textInput)} />
           </div>
         </div>
         <div className="courses-container">
