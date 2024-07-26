@@ -11,7 +11,7 @@ const colors = [
   '#92ebff', '#b0c6ff', '#e1afff', '#ffb8ef'
 ];
 
-const Example = () => {
+const TimeTable = () => {
   const { onCreateTimetableList, timetableList } = useTimetable();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Example = () => {
   const generateColorMap = (courseCodes) => {
     const colorMap = {};
     courseCodes.forEach((code, index) => {
-      colorMap[code] = colors[index % colors.length]; 
+      colorMap[code] = colors[index % colors.length];
     });
     return colorMap;
   };
@@ -47,11 +47,11 @@ const Example = () => {
         <Grid container key={i}>
           <Grid item xs={1} className="timetable-time">
             <Typography variant="body2" align="center">
-              {i > 12 ? i - 12 : i}:00
+              {i > 12 ? i - 12 : i}
             </Typography>
           </Grid>
           {days.map((day) => (
-            <Grid item xs={2.2} key={day} className="timetable-cell">
+            <Grid item xs={2.2} key={day} className="timetable-cell" >
               {timetableList.map((course) => {
                 const courseDayMap = {
                   Monday: 'MON',
@@ -61,50 +61,30 @@ const Example = () => {
                   Friday: 'FRI',
                 };
 
+                const courseStartTime = parseInt(course.courseStartTime.split(':')[0]) * 60 + parseInt(course.courseStartTime.split(':')[1]);
+                const courseEndTime = parseInt(course.courseEndTime.split(':')[0]) * 60 + parseInt(course.courseEndTime.split(':')[1]);
+                const courseDuration = courseEndTime - courseStartTime;
                 const courseStartHour = parseInt(course.courseStartTime.split(':')[0]);
-                const courseEndHour = parseInt(course.courseEndTime.split(':')[0]);
 
-                if (courseDayMap[course.courseDay] === day) {
+                if (courseDayMap[course.courseDay] === day && courseStartHour === i) {
+                  const heightPercentage = (courseDuration / 60) * 100;
                   const backgroundColor = colorMap[course.courseCode] || '#e0e0e0';
-
-                  // 강의명이 중앙에 위치하도록 스타일 조정
-                  if (courseStartHour === i) {
-                    return (
-                      <div
-                        key={course.courseId}
-                        className="timetable-card-wrapper"
-                        style={{
-                          gridRow: `span ${courseEndHour - courseStartHour}`,
-                          backgroundColor: backgroundColor,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          height: '100%', // 셀 높이를 100%로 설정
-                        }}
-                      >
-                        <TimetableCard course={course} backgroundColor={backgroundColor} />
-                      </div>
-                    );
-                  } else if (courseStartHour < i && i < courseEndHour) {
-                    return (
-                      <div
-                        key={`${course.courseId}-${i}`}
-                        className="timetable-card-wrapper"
-                        style={{
-                          gridRow: `span 1`,
-                          backgroundColor: backgroundColor,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          height: '100%',
-                        }}
-                      >
-                        <Typography variant="body2" align="center">
-                          {course.courseName} 
-                        </Typography>
-                      </div>
-                    );
-                  }
+                  return (
+                    <div
+                      key={course.courseId}
+                      className="timetable-card-wrapper"
+                      style={{
+                        height: `${heightPercentage}%`, // Adjust the height based on the course duration
+                        backgroundColor: backgroundColor,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '100%'
+                      }}
+                    >
+                      <TimetableCard course={course} backgroundColor={backgroundColor} />
+                    </div>
+                  );
                 }
                 return null;
               })}
@@ -129,4 +109,4 @@ const Example = () => {
   );
 };
 
-export default Example;
+export default TimeTable;
