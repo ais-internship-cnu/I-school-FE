@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Grid, Typography, Box } from '@mui/material';
 import useTimetable from 'hooks/useTimetable';
 import TimetableCard from './TimetableCard';
-import 'styles/common.css';
+import 'styles/timetable.css';
 
 const days = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 
@@ -67,14 +67,14 @@ const TimeTable = () => {
                 const courseStartHour = parseInt(course.courseStartTime.split(':')[0]);
 
                 if (courseDayMap[course.courseDay] === day && courseStartHour === i) {
-                  const heightPercentage = (courseDuration / 60) * 100;
+                  const heightPercentage = (courseDuration / 60) * 9; // Adjust the height based on the course duration and cell height of 9vh
                   const backgroundColor = colorMap[course.courseCode] || '#e0e0e0';
                   return (
                     <div
                       key={course.courseId}
                       className="timetable-card-wrapper"
                       style={{
-                        height: `${heightPercentage}%`, // Adjust the height based on the course duration
+                        height: `${heightPercentage}vh`, // Adjust the height based on the course duration
                         backgroundColor: backgroundColor,
                         display: 'flex',
                         alignItems: 'center',
