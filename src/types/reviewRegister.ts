@@ -6,3 +6,10 @@ export type ReviewRegister = {
     food: string ;
     img: string;
 }
+
+export type ReviewRegisterTest = {
+    // userId: number;
+    // courseId: number;
+    food: string
+    rating: number
+}

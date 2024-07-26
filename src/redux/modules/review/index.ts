@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { API } from 'constant/api'
 import { RootState } from 'redux/store'
 import { ReviewState } from 'types/review'
-import { ReviewRegister } from 'types/reviewRegister'
+import { ReviewRegister, ReviewRegisterTest } from 'types/reviewRegister'
 import { api } from 'utill/axios'
 
 export const createReviewList = createAsyncThunk(
@@ -19,7 +19,7 @@ export const createReviewList = createAsyncThunk(
 
 export const createCourseReview = createAsyncThunk( // 정빈 추가 부분 API POST요청 보내기
   'registration/createCourseReview',
-  async (data: ReviewRegister, { rejectWithValue }
+  async (data: ReviewRegisterTest, { rejectWithValue }
   ) => {
     try {
       const response = await api.post(API.REVIEW_REGISTER, data)

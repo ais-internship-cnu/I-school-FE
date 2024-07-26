@@ -5,7 +5,7 @@ import {
   createReviewList,
   reviewSelector,
 } from 'redux/modules/review'
-import { ReviewRegister } from 'types/reviewRegister' // ReviewRegister타입 추가
+import { ReviewRegister, ReviewRegisterTest } from 'types/reviewRegister' // ReviewRegister타입 추가
 
 const useReview = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -19,9 +19,9 @@ const useReview = () => {
 
   // 정빈 추가 부분 (onCreateReview 함수) -> redux로 post요청 보내는 얘.
   // 나중에 변수명 설정 바꿔주기
-  const onCreateReview = ({food, img}:ReviewRegister ) => {
-    dispatch(createCourseReview({food, img}))
-    console.log("before dispatch" + food + img)
+  const onCreateReview = ({food, rating}:ReviewRegisterTest ) => {
+    dispatch(createCourseReview({food, rating}))
+    // console.log("before dispatch" + food + img)
   }
 
   return {
