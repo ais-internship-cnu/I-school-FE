@@ -28,35 +28,34 @@
 
 - 기본적인 폴더명 - **`camelCase`**
     
-    ![Untitled](%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B3%20%E1%84%84%E1%85%A9%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B5%E1%84%85%E1%85%B3%E1%86%B7%20%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%87%E1%85%A6%E1%86%AB%E1%84%89%E1%85%A7%E1%86%AB%200edb275e8cb24d43b52726fc766b8a09/Untitled.png)
+  ![Untitled 1](https://github.com/user-attachments/assets/be291ac4-609a-4081-8b29-70679cee0308)
+
     
 - 직접적인 컴포넌트들이 들어있는 폴더명 - **`PascalCase`**
     
-    ![Untitled](%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B3%20%E1%84%84%E1%85%A9%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B5%E1%84%85%E1%85%B3%E1%86%B7%20%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%87%E1%85%A6%E1%86%AB%E1%84%89%E1%85%A7%E1%86%AB%200edb275e8cb24d43b52726fc766b8a09/Untitled%201.png)
-    
+    ![Untitled 2](https://github.com/user-attachments/assets/9942fba2-5863-4682-829f-9871126d83a5)
+
 - 모든 컴포넌트, 스타일 컴포넌트 - **`PascalCase`**
     
-    ![Untitled](%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B3%20%E1%84%84%E1%85%A9%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B5%E1%84%85%E1%85%B3%E1%86%B7%20%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%87%E1%85%A6%E1%86%AB%E1%84%89%E1%85%A7%E1%86%AB%200edb275e8cb24d43b52726fc766b8a09/Untitled%202.png)
-    
+    ![Untitled 3](https://github.com/user-attachments/assets/cbea785b-feec-47f8-b764-16d48b00d2d1)
+
 - 페이지 파일명 - **`PascalCase`**
     
-    ![Untitled](%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B3%20%E1%84%84%E1%85%A9%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B5%E1%84%85%E1%85%B3%E1%86%B7%20%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%87%E1%85%A6%E1%86%AB%E1%84%89%E1%85%A7%E1%86%AB%200edb275e8cb24d43b52726fc766b8a09/Untitled%203.png)
-    
+    ![Untitled 4](https://github.com/user-attachments/assets/2c51e801-843e-4c09-834e-622caec1307f)
+
 - 컴포넌트명과 파일명 일치시키기
     
-    ![Untitled](%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B3%20%E1%84%84%E1%85%A9%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B5%E1%84%85%E1%85%B3%E1%86%B7%20%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%87%E1%85%A6%E1%86%AB%E1%84%89%E1%85%A7%E1%86%AB%200edb275e8cb24d43b52726fc766b8a09/Untitled%204.png)
-    
+    ![Untitled 5](https://github.com/user-attachments/assets/9d0fda39-e5ec-45af-99c3-6b4e08eb6730)
+
 - 함수, 변수, hook - **`camelCase`**
     
-    ![Untitled](%E1%84%8F%E1%85%A9%E1%84%83%E1%85%B3%20%E1%84%84%E1%85%A9%E1%84%82%E1%85%B3%E1%86%AB%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%8B%E1%85%B5%E1%84%85%E1%85%B3%E1%86%B7%20%E1%84%8F%E1%85%A5%E1%86%AB%E1%84%87%E1%85%A6%E1%86%AB%E1%84%89%E1%85%A7%E1%86%AB%200edb275e8cb24d43b52726fc766b8a09/Untitled%205.png)
-    
+    ![Untitled](https://github.com/user-attachments/assets/efd06ea6-98ce-4a9d-855d-92d165c1a88f)
+
 - 컴포넌트를 제외한 모든 태그 - **`소문자`**
 - 이미지와 같은 asset 파일명 - **`소문자`**
 - HTML, CSS에서 클래스명이나 id명 **`kebab-case`**
 - 상수명, 띄어쓰기 일 때는 언더바('-') **`UPPER_CASE`**
 - 개행 - **`CRLF`**
-
----
 
 ### 표기법
 
