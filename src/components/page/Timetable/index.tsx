@@ -1,34 +1,61 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, Typography, Box } from '@mui/material';
 import useTimetable from 'hooks/useTimetable';
 import TimetableCard from './TimetableCard';
-import 'styles/common.css';
+import TimetableModal from './TimetableModal';
+import 'styles/timetable.css';
+import { useRouter } from 'next/navigation';
 
 const days = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 
 const colors = [
-  '#ffbaba', '#ffc092', '#cfff92', '#b0ffd9', 
+  '#ffbaba', '#ffc092', '#cfff92', '#b0ffd9',
   '#92ebff', '#b0c6ff', '#e1afff', '#ffb8ef'
 ];
 
-const TimeTable = () => {
+const TimeTable = ({ }) => {
   const { onCreateTimetableList, timetableList } = useTimetable();
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState<any>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     onCreateTimetableList();
   }, []);
 
-  const generateColorMap = (courseCodes) => {
-    const colorMap = {};
+  useEffect(() => {
+    if (openModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [openModal]);
+
+  const generateColorMap = (courseCodes: string[]) => {
+    const colorMap: { [key: string]: string } = {};
     courseCodes.forEach((code, index) => {
       colorMap[code] = colors[index % colors.length];
     });
     return colorMap;
   };
 
+  const handleCardClick = (course: any) => {
+    setSelectedCourse(course);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedCourse(null);
+  };
+
   const renderTimetable = () => {
-    const timetable = [];
-    
+    const timetable: React.ReactNode[] = [];
+
     timetable.push(
       <Grid container key="header">
         <Grid item xs={1}></Grid>
@@ -51,9 +78,9 @@ const TimeTable = () => {
             </Typography>
           </Grid>
           {days.map((day) => (
-            <Grid item xs={2.2} key={day} className="timetable-cell" >
-              {timetableList.map((course) => {
-                const courseDayMap = {
+            <Grid item xs={2.2} key={day} className="timetable-cell">
+              {timetableList.map((course: any) => {
+                const courseDayMap: { [key: string]: string } = {
                   Monday: 'MON',
                   Tuesday: 'TUE',
                   Wednesday: 'WED',
@@ -67,20 +94,21 @@ const TimeTable = () => {
                 const courseStartHour = parseInt(course.courseStartTime.split(':')[0]);
 
                 if (courseDayMap[course.courseDay] === day && courseStartHour === i) {
-                  const heightPercentage = (courseDuration / 60) * 100;
+                  const heightPercentage = (courseDuration / 60) * 9;
                   const backgroundColor = colorMap[course.courseCode] || '#e0e0e0';
                   return (
                     <div
                       key={course.courseId}
                       className="timetable-card-wrapper"
                       style={{
-                        height: `${heightPercentage}%`, // Adjust the height based on the course duration
+                        height: `${heightPercentage}vh`,
                         backgroundColor: backgroundColor,
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
                         width: '100%'
                       }}
+                      onClick={() => handleCardClick(course)}
                     >
                       <TimetableCard course={course} backgroundColor={backgroundColor} />
                     </div>
@@ -97,14 +125,23 @@ const TimeTable = () => {
     return timetable;
   };
 
-  const courseCodes = [...new Set(timetableList.map(course => course.courseCode))];
+  const courseCodes = Array.from(new Set(timetableList.map((course: any) => course.courseCode)));
   const colorMap = generateColorMap(courseCodes);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <Box className="timetable-container">
       <Grid container>
         {renderTimetable()}
       </Grid>
+      <TimetableModal
+        open={openModal}
+        handleClose={handleCloseModal}
+        course={selectedCourse}
+      />
     </Box>
   );
 };
