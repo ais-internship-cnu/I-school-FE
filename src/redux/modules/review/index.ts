@@ -7,33 +7,32 @@ import { api } from 'utill/axios'
 
 export const createReviewList = createAsyncThunk(
   'review/createReviewList',
-  async (data:number, { rejectWithValue }) => {
+  async (data: { courseName: string, professor: string }, { rejectWithValue }) => {
     try {
-      const response = await api.get(API.COURSER_REVIEW, {params:data})
-      return response.data
+      const response = await api.get(API.COURSER_REVIEW, { params: { course_name: data.courseName, professor: data.professor } });
+      return response.data;
     } catch (error) {
-      return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.')
+      return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.');
     }
   }
 )
 
 export const createCourseReview = createAsyncThunk( // 정빈 추가 부분 API POST요청 보내기
   'registration/createCourseReview',
-  async (data: ReviewRegister, { rejectWithValue }
-  ) => {
+  async (data: ReviewRegister, { rejectWithValue }) => {
     try {
-      const response = await api.post(API.REVIEW_REGISTER, data)
-      console.log(response.status)
+      const response = await api.post(API.REVIEW_REGISTER, data);
+      console.log(response.status);
       // return response.data
     } catch (error) {
-      return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.')
+      return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.');
     }
   }
 )
 
 // 初期状態を正義
 const initialState: ReviewState = {
-  reviewList : []
+  reviewList: []
 }
 
 // slice生成
@@ -44,14 +43,15 @@ export const reviewSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(createReviewList.fulfilled, (state, action) => {
-        state.reviewList = action.payload
+        state.reviewList = action.payload;
       })
       .addCase(createReviewList.rejected, (state) => {
-        state.reviewList = []
+        state.reviewList = [];
       })
   }
 })
-// selector定義
-export const reviewSelector = (state: RootState) => state.review
 
-export default reviewSlice.reducer
+// selector定義
+export const reviewSelector = (state: RootState) => state.review;
+
+export default reviewSlice.reducer;
