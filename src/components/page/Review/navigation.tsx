@@ -4,22 +4,22 @@ import StarBorderIcon from '@mui/icons-material/StarBorder';
 import PlagiarismOutlinedIcon from '@mui/icons-material/PlagiarismOutlined';
 
 const CustomBottomNavigation = styled(BottomNavigation)({
-    position: 'fixed',
-    bottom: 0,
-    width: '353px',
-    borderTop: '1px solid #cccccc',
-    '& .Mui-selected': {
-        color: '#f06292',
-    },
-    '& .MuiBottomNavigationAction-root': {
-        color: 'gray',
-    },
-    '& .MuiBottomNavigationAction-root .MuiSvgIcon-root': {
-        color: 'gray',
-    },
-    '& .Mui-selected .MuiSvgIcon-root': {
-        color: '#f06292',
-    }
+  position: 'fixed',
+  bottom: 0,
+  width: '353px',
+  borderTop: '1px solid #cccccc',
+  '& .Mui-selected': {
+    color: '#f06292',
+  },
+  '& .MuiBottomNavigationAction-root': {
+    color: 'gray',
+  },
+  '& .MuiBottomNavigationAction-root .MuiSvgIcon-root': {
+    color: 'gray',
+  },
+  '& .Mui-selected .MuiSvgIcon-root': {
+    color: '#f06292',
+  }
 });
 
 export default function SimpleBottomNavigation() {

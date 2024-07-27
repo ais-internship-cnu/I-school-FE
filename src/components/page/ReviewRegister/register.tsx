@@ -20,9 +20,9 @@ const register = () => {
 
     food: yup
     .string()
-    .typeError("음식명을 적어주세요")
+    .typeError("강의평을 입력해주세요")
     .max(256, "256자 이내로 적어주세요")
-    .required("음식명을 적어주세요"),
+    .required("강의평을 입력해주세요"),
     rating: yup
     .number()
     .typeError("숫자로 적어주세요")
@@ -55,16 +55,16 @@ const register = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
         <Box className="star-rating">
-        <TextField
-          multiline
-          rows={8}
-          variant="filled"
-          fullWidth
-          placeholder="이 강의에 대한 총평을 작성해주세요."
-          {...register('rating')}
-          className="rating-textarea"
-          helperText={errors.food?.message}
-        />
+          <TextField
+            multiline
+            rows={8}
+            variant="filled"
+            fullWidth
+            placeholder="이 강의에 대한 총평을 작성해주세요."
+            {...register('rating')}
+            className="rating-textarea"
+            helperText={errors.rating?.message}
+          />
         </Box>
         <TextField
           multiline
