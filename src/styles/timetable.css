@@ -61,3 +61,24 @@
 .course-room{
     font-size: 12px;
 }
+
+/* styles/timetable.css */
+.modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.modal-box {
+  outline: none !important; /* 포커스 시 검은색 테두리 제거 */
+}
+
+button:focus {
+  outline: none !important; /* 버튼 포커스 시 검은색 테두리 제거 */
+}
