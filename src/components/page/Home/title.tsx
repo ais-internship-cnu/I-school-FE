@@ -2,8 +2,8 @@ import 'styles/homeStyle.css'
 
 const HomeTitle = () => {
     return (
-        <div className='container'>
-            <h1 className='title'>アイスクールム</h1>
+        <div className='home-container'>
+            <h1 className='home-title'>アイスクールム</h1>
         </div>
     )
 }
