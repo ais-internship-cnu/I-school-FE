@@ -128,7 +128,6 @@ const TimeTable = ({ }) => {
   const courseCodes = Array.from(new Set(timetableList.map((course: any) => course.courseCode)));
   const colorMap = generateColorMap(courseCodes);
 
-  // 클라이언트 렌더링 확인 후에만 렌더링
   if (!mounted) {
     return null;
   }

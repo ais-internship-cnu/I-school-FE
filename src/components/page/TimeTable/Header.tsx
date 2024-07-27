@@ -8,14 +8,10 @@ const Header = () => {
     return (
         <div>
             <Grid container alignItems="center" justifyContent="space-between" className="header">
-                <Typography className="title-box">
-                    <Typography>
-                        2023학년 2학기
-                    </Typography>
-                    <Typography variant="h5" className="title">
-                        시간표
-                    </Typography>
-                </Typography>
+                <Box className="title-box">
+                    <Typography>2023학년 2학기</Typography>
+                    <Typography variant="h5" className="title">시간표</Typography>
+                </Box>
                 <div>
                     <IconButton>
                         <AddIcon />
