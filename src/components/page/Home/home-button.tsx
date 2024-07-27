@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import 'styles/homeStyle.css'
 
-const FreeBoardButton = () => {
+const HomeButton = () => {
     return (
         <div className="home-container">
             <div className='home-wrapper'>
@@ -22,7 +22,7 @@ const FreeBoardButton = () => {
             </div>
             <div className='home-wrapper'>
                 <div className="home-button">
-                    <Link href="#" className='home-link-align'>
+                    <Link href="/review-register-page" className='home-link-align'>
                         <img src="img/stack-of-books.png" alt="강의평" />
                         강의평
                     </Link>
@@ -32,4 +32,4 @@ const FreeBoardButton = () => {
     )
 }
   
-export default FreeBoardButton
+export default HomeButton
