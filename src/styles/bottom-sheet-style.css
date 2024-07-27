@@ -1,48 +1,148 @@
+.page-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5; /* 페이지 배경색 설정 */
+  box-sizing: border-box; /* 박스 사이징 설정 */
+}
+
 .bottom-sheet-container {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: white;
-    padding: 16px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-  }
-  
-  .top-section {
-    margin-bottom: 16px;
-  }
-  
-  .search-bar {
-    flex-grow: 1;
-  }
-  
+  width: 393px;
+  height: 70%;
+  background-color: white;
+  padding: 16px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box; /* 박스 사이징 설정 */
+}
+
+/* 중앙 정렬 및 페이지 내부 패딩 */
+.fix-top {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.search-bar {
+  width: 215px;
+  height: 30px; /* 높이를 조정하여 세로 길이를 줄임 */
+  border: 0px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: #dbdada;
+  color: black;
+  font-size: 14px; /* 폰트 크기 설정 */
+  outline: none;
+  padding-left: 7px;
+
+}
+.search-bar::placeholder{
+  color: rgb(162, 91, 91); /* placeholder 텍스트 색상 */
+}
+
+.courses-container {
+  margin-right: 32px;
+  width: 90%;
+  max-height: 700px;
+  box-sizing: border-box; /* 박스 사이징 설정 */
+}
+
+.course-block {
+  width: 100%;
+  border: 1px solid #cccccc;
+  padding: 16px;
+  margin-bottom: 0px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  text-align: left;
+  position: relative;
+  border-bottom: 1px solid #cccccc; /* 아래 경계선만 적용 */
+  border-top: 1px;
+  border-right: 1px;
+  border-left:1px;
+}
+
+.course-block h3,
+.course-block p {
+  margin: 3px 0;
+  padding: 0;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.upper-button {
+  font-size: 14px; /* 글꼴 크기 축소 */
+  padding: 2px 8px; /* 상하 2px, 좌우 8px 패딩으로 조정 */
+  border-radius: 8px; /* 둥근 모서리 설정 */
+  margin-right: 7px; /* 버튼 사이의 간격 */
+  background-color: #d2d2d2; /* 버튼 배경 색상 */
+  color: rgb(0, 0, 0); /* 버튼 텍스트 색상 */
+  border: none; /* 기본 테두리 제거 */
+  cursor: pointer; /* 클릭 커서 표시 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  display: inline-block; /* 버튼 크기 조정 가능 */
+  min-width: 40px; /* 최소 너비 설정 */
+  max-width: 80px; /* 최대 너비 설정 */
+}
+
+
+.action-button {
+  font-size: 12px; /* 글꼴 크기 축소 */
+  padding: 2px 8px; /* 상하 2px, 좌우 8px 패딩으로 조정 */
+  border-radius: 12px; /* 둥근 모서리 설정 */
+  margin-right: 0px; /* 버튼 사이의 간격 */
+  background-color: #d2d2d2; /* 버튼 배경 색상 */
+  color: rgb(0, 0, 0); /* 버튼 텍스트 색상 */
+  border: none; /* 기본 테두리 제거 */
+  cursor: pointer; /* 클릭 커서 표시 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  display: inline-block; /* 버튼 크기 조정 가능 */
+  min-width: 40px; /* 최소 너비 설정 */
+  max-width: 80px; /* 최대 너비 설정 */
+}
+
+.action-button:hover {
+  background-color: #0056b3;
+}
+
+.course-button {
+  font-size: 12px; /* 글꼴 크기 축소 */
+  padding: 2px 8px; /* 상하 2px, 좌우 8px 패딩으로 조정 */
+  border-radius: 12px; /* 둥근 모서리 설정 */
+  margin-right: 0px; /* 버튼 사이의 간격 */
+  background-color: #f976c7; /* 버튼 배경 색상 */
+  color: rgb(255, 255, 255); /* 버튼 텍스트 색상 */
+  border: none; /* 기본 테두리 제거 */
+  cursor: pointer; /* 클릭 커서 표시 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  display: inline-block; /* 버튼 크기 조정 가능 */
+  min-width: 40px; /* 최소 너비 설정 */
+  max-width: 80px; /* 최대 너비 설정 */
+}
+
+.course-button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional styling for responsive design */
+@media (max-width: 768px) {
   .course-block {
-    position: relative;
-    width: 100%;
-    padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    text-align: left;
+    width: 90%;
   }
-  
-  .course-block h3 {
-    margin: 0 0 8px 0;
-  }
-  
-  .course-block p {
-    margin: 4px 0;
-  }
-  
-  .course-block .action-buttons {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .action-button {
-    margin-top: 8px;
-    padding: 8px 16px;
-  }
-  
+}
