@@ -100,6 +100,9 @@
   min-width: 40px; /* 최소 너비 설정 */
   max-width: 80px; /* 최대 너비 설정 */
 }
+.upper-button:hover{
+  background-color: #a7a8a9;
+}
 
 
 .action-button {
@@ -118,7 +121,7 @@
 }
 
 .action-button:hover {
-  background-color: #0056b3;
+  background-color: #a7a8a9;
 }
 
 .course-button {
@@ -137,7 +140,7 @@
 }
 
 .course-button:hover {
-  background-color: #0056b3;
+  background-color: #fc3796;
 }
 
 /* Additional styling for responsive design */
