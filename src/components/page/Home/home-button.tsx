@@ -28,7 +28,7 @@ const HomeButton = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </div> 
     )
 }
   
