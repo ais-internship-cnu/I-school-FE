@@ -1,7 +1,7 @@
 "use client";
 
+import BottomSheet from 'components/page/TimeTable/BottomSheet';
 import React from 'react';
-import BottomSheet from 'components/page/Timetable/BottomSheet';
 import 'styles/bottom-sheet-style.css';
 
 const BottomSheetSample: React.FC = () => (

@@ -8,18 +8,15 @@
     font-weight: bold;
 }
 
-.timetable-container {
-    padding: 16px;
-  }
-  
 .timetable-header {
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: white;
+  padding: 1rem;
 }
+
+.timetable-container {
+  padding: 1rem;
+}
+
   
 .timetable-time {
   background-color: #f5f5f5;
