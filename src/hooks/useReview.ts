@@ -1,12 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from 'redux/store';
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch } from 'redux/store'
 import {
   createCourseReview,
   createReviewList, // 수정된 액션
   reviewSelector,
 } from 'redux/modules/review'
-import { ReviewRegister, ReviewRegisterTest } from 'types/reviewRegister' // ReviewRegister타입 추가
-import { radioClasses, Rating } from '@mui/material';
+import { ReviewRegisterTest } from 'types/reviewRegister' // ReviewRegister타입 추가
 
 const useReview = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -22,7 +21,7 @@ const useReview = () => {
   // 나중에 변수명 설정 바꿔주기
   const onCreateReview = ({food, rating}:ReviewRegisterTest ) => {
     dispatch(createCourseReview({food, rating}))
-    console.log("before dispatch" + food + rating)
+    // console.log("before dispatch" + food + rating)
   }
 
   return {

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { API } from 'constant/api'
 import { RootState } from 'redux/store'
 import { ReviewState } from 'types/review'
-import { ReviewRegister, ReviewRegisterTest } from 'types/reviewRegister'
+import { ReviewRegisterTest } from 'types/reviewRegister'
 import { api } from 'utill/axios'
 
 export const createReviewList = createAsyncThunk(

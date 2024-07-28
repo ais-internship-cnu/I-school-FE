@@ -3,8 +3,8 @@
 export type ReviewRegister = {
     // userId: number;
     // courseId: number;
-    food: string ;
-    img: string;
+    food: string
+    img: string
 }
 
 export type ReviewRegisterTest = {
