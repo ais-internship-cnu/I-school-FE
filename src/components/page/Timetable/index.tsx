@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Typography, Box } from '@mui/material';
 import useTimetable from 'hooks/useTimetable';
-import TimetableCard from './TimetableCard';
-import TimetableModal from './TimetableModal';
 import 'styles/timetable.css';
 import { useRouter } from 'next/navigation';
+import TimetableCard from './TimetableCard';
+import TimetableModal from './TimetableModal';
 
 const days = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 

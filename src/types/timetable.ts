@@ -6,6 +6,7 @@ export type Course = {
     courseDay: string;
     courseStartTime: string;
     courseEndTime: string;
+    professor: string;
   };
   
   export type Timetable = {
