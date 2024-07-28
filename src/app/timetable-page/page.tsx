@@ -2,8 +2,8 @@
 
 import Page from 'app/page'
 import NavBar from 'components/page/Home/navigator'
-import TimeTable from 'components/page/Timetable'
-import Header from 'components/page/Timetable/Header'
+import TimeTable from 'components/page/TimeTable'
+import Header from 'components/page/TimeTable/Header'
 
 const TimetablePage = () => (
   <Page title="TimetablePage">
