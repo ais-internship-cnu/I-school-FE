@@ -1,11 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from 'redux/store';
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch } from 'redux/store'
 import {
   createCourseReview,
   createReviewList, // 수정된 액션
   reviewSelector,
-} from 'redux/modules/review';
-import { ReviewRegister } from 'types/reviewRegister';
+} from 'redux/modules/review'
+import { ReviewRegisterTest } from 'types/reviewRegister' // ReviewRegister타입 추가
 
 const useReview = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,10 +17,12 @@ const useReview = () => {
     dispatch(createReviewList({ courseName, professor }));
   };
 
-  const onCreateReview = ({ food, img }: ReviewRegister) => {
-    dispatch(createCourseReview({ food, img }));
-    console.log('before dispatch' + food + img);
-  };
+  // 정빈 추가 부분 (onCreateReview 함수) -> redux로 post요청 보내는 얘.
+  // 나중에 변수명 설정 바꿔주기
+  const onCreateReview = ({food, rating}:ReviewRegisterTest ) => {
+    dispatch(createCourseReview({food, rating}))
+    // console.log("before dispatch" + food + rating)
+  }
 
   return {
     onCreateReviewList,
