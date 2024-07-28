@@ -24,8 +24,10 @@ export const createCourseReview = createAsyncThunk( // 정빈 추가 부분 API 
     try {
       const response = await api.post(API.REVIEW_REGISTER, data);
       console.log(response.status);
+      alert('등록되었습니다.')
       // return response.data
     } catch (error) {
+      alert('등록에 실패했습니다.')
       return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.');
     }
   }

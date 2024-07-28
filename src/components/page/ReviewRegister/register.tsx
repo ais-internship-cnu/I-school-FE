@@ -17,7 +17,7 @@ const register = () => {
     rating: yup
     .number()
     .typeError("숫자로 적어주세요")
-    .min(0, "0이상 값을 넣어주세요")
+    .min(1, "평점을 입력해주세요")
     .max(5, "5이하 값을 넣어주세요")
     .required("평점을 입력해주세요"),
     food: yup
@@ -43,15 +43,8 @@ const register = () => {
     }
   })
 
-  const onSubmit = async (data:ReviewRegisterTest) => {
-    // 등록했을 때 알림창 추가 예외처리
-    try {
-      await onCreateReview({food:data.food, rating: data.rating})
-      alert('등록되었습니다.')
-    } catch (error) {
-      alert('등록에 실패했습니다.')
-      console.error(error)
-    }
+  const onSubmit = (data:ReviewRegisterTest) => {
+    onCreateReview({food:data.food, rating:data.rating});
     // console.log(`Food: ${food}, Img: ${img}`);
   };
 
@@ -79,7 +72,7 @@ const register = () => {
           className="rating-textarea"
           helperText={errors.food?.message}
         />
-        <Button className="submit-button" type="submit">평가하기</Button>
+        <Button className="submit-button" type="submit" >평가하기</Button>
     </form>
   );
 };
