@@ -12,6 +12,7 @@ const register = () => {
   // 텍스트 필드의 내용을 저장할 상태 변수
   const { onCreateReview } = useReview();
 
+  // 유효성 검사
   const schema = yup.object().shape({
 
     rating: yup
@@ -33,7 +34,9 @@ const register = () => {
     setValue,
     handleSubmit,
     register,
-    formState: { errors, isValid }
+    formState: { errors, isValid },
+    reset, // 폼 초기화. reset
+    watch // watch 훅 추가
   } = useForm<ReviewRegisterTest>({
     mode: 'all',
     resolver: yupResolver(schema),
@@ -44,16 +47,20 @@ const register = () => {
   })
 
   const onSubmit = (data:ReviewRegisterTest) => {
-    onCreateReview({food:data.food, rating:data.rating});
+    onCreateReview({food:data.food, rating:data.rating})
+    reset()
     // console.log(`Food: ${food}, Img: ${img}`);
   };
+
+  const ratingValue = watch("rating", 0) // rating값을 watch로 가져옵니다.
+
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
         <Box className="star-rating">
           <Rating
             name="course-rating"
-            value={undefined}
+            value={ratingValue}
             onChange={(event, newValue) => {
               setValue("rating", newValue || 0);
             }}
@@ -76,6 +83,5 @@ const register = () => {
     </form>
   );
 };
-
 
 export default register
