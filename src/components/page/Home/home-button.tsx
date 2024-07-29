@@ -22,7 +22,7 @@ const HomeButton = () => {
             </div>
             <div className='home-wrapper'>
                 <div className="home-button">
-                    <Link href="/review-register-page" className='home-link-align'>
+                    <Link href="/course-page" className='home-link-align'>
                         <img src="img/stack-of-books.png" alt="강의평" />
                         강의평
                     </Link>
