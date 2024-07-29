@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { API } from 'constant/api'
 import { RootState } from 'redux/store'
 import { ReviewState } from 'types/review'
-import { ReviewRegisterTest } from 'types/reviewRegister'
+import { postData, ReviewRegisterTest } from 'types/reviewRegister'
 import { api } from 'utill/axios'
 import axios, { AxiosError } from 'axios';
 
@@ -20,7 +20,7 @@ export const createReviewList = createAsyncThunk(
 
 export const createCourseReview = createAsyncThunk( // 정빈 추가 부분 API POST요청 보내기
   'registration/createCourseReview',
-  async (data: ReviewRegisterTest, { rejectWithValue }
+  async (data: postData, { rejectWithValue }
   ) => {
     try {
       const response = await api.post(API.REVIEW_REGISTER, data);
@@ -34,10 +34,10 @@ export const createCourseReview = createAsyncThunk( // 정빈 추가 부분 API 
         const { status } = error.response;
         switch (status) {
           case 400:
-            alert('잘못된 요청입니다. 입력한 내용을 다시 확인해주세요.');
+            alert('중복된 값입니다.');
             break;
           case 401:
-            alert('인증에 실패했습니다. 다시 로그인해주세요.');
+            alert('인증에 실패했습니다.');
             break;
           case 403:
             alert('접근 권한이 없습니다.');
