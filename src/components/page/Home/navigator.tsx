@@ -6,25 +6,13 @@ import ScheduleIcon from '@mui/icons-material/Schedule';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { styled } from '@mui/system';
 
-// 스타일 구성
-const StyledAppBar = styled(AppBar)({
-  top: 'auto',
-  bottom: 0,
-  height: '60px',
-  maxWidth: '353px',
-  left: '50%',
-  transform: 'translateX(-50%)',
-  width: '100%',
-  backgroundColor: '#ffffff',
-});
-
 const StyledBottomNavigation = styled(BottomNavigation)({
   width: '100%',
   height: '60px',
 });
 
 const StyledBottomNavigationAction = styled(BottomNavigationAction)(({ theme }) => ({
-  minWidth: '0px',
+  minWidth: '100px',
   maxWidth: '100px',
   '&.selected': {
     color: '#ff69b4',
@@ -76,8 +64,12 @@ const NavBar = () => {
   };
 
   return (
-    <StyledAppBar position="absolute">
-      <Toolbar style={{ padding: 0 }}>
+      <div style={{
+        position: "fixed",
+        bottom: "0",
+        width:'353px',
+        borderTop: '1px solid #eeeeee'
+        }}>
         <StyledBottomNavigation
           value={value}
           onChange={(event, newValue) => handleNavigation(newValue)}
@@ -99,8 +91,7 @@ const NavBar = () => {
             className={value === 2 ? 'selected' : 'notSelected'}
           />
         </StyledBottomNavigation>
-      </Toolbar>
-    </StyledAppBar>
+    </div>
   );
 };
 
