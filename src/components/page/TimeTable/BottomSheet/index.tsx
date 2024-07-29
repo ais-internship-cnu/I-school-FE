@@ -105,7 +105,7 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
               variant="contained"
               className="button upper-button"
             >
-              전공
+              학년
               <GradeModal show={showGradeModal} onClose={toggleGradeModal} />
             </Button>
             <Button
@@ -113,7 +113,7 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
               variant="contained"
               className="button upper-button"
             >
-              학년
+              전공
               <MajorModal show={showMajorModal} onClose={toggleMajorModal} />
             </Button>
             <input 
