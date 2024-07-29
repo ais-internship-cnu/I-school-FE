@@ -1,6 +1,6 @@
 // mockData.ts
 // mockData.ts
-export const mockCourses = [
+export const mockCourseLists = [
   { courseName: 'Introduction to Programming', professor: 'Alice Johnson', rating: 4.6 },
   { courseName: 'Data Structures and Algorithms', professor: 'Bob Lee', rating: 4.8 },
   { courseName: 'Web Development', professor: 'Carol White', rating: 4.7 },
