@@ -10,11 +10,13 @@
 
 .timetable-header {
   background-color: white;
-  padding: 1rem;
+  padding: 10px;
 }
 
 .timetable-container {
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 
   

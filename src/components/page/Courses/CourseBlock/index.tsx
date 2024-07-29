@@ -10,7 +10,7 @@ interface CourseBlockProps {
 
 const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating }) => {
   const handleClick = () => {
-    window.location.href = `/course-details/${courseName}`;
+    window.location.href = `/review-page/${courseName}/${professor}`;
   };
 
   return (
