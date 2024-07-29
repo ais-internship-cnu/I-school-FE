@@ -19,9 +19,12 @@ const ReviewPage = () => {
   console.log('course_name:', courseNameStr);
   console.log('professor:', professorStr);
 
+  // 예시로 courseId를 1로 설정 (실제로는 데이터에서 가져와야 함)
+  const courseId = 1;
+
   return (
     <Page title="ReviewPage">
-      <Header />
+      <Header courseId={courseId} />
       {courseNameStr && professorStr && (
         <>
           <AverageStar courseName={courseNameStr} professor={professorStr} />
