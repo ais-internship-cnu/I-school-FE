@@ -9,7 +9,14 @@ export type ReviewRegister = {
 
 export type ReviewRegisterTest = {
     // userId: number;
-    // courseId: number;
+    // courseId: number
     food: string
     rating: number
+}
+
+export type postData = {
+    // userId: number;
+    food: string
+    rating: number
+    courseId: number
 }

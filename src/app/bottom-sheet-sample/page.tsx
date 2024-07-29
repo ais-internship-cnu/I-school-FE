@@ -1,6 +1,6 @@
 "use client";
 
-import BottomSheet from 'components/page/TimeTable/BottomSheet';
+import BottomSheet from 'components/page/Timetable/BottomSheet';
 import React from 'react';
 import 'styles/bottom-sheet-style.css';
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '@mui/material';
-import BottomSheetCourseBlock from './BottomSheetCourseBlock';
 import 'styles/bottom-sheet-style.css';
+import BottomSheetCourseBlock from './BottomSheetCourseBlock';
 
 interface BottomSheetCourse {
   courseName: string;
