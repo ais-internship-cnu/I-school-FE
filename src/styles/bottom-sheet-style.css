@@ -23,7 +23,7 @@
 
 /* 검색바레이아웃 */
 .search-bar { 
-  width: 215px;
+  width: 180px;
   height: 30px; 
   border: 0px;
   box-sizing: border-box;
@@ -170,13 +170,30 @@
 }
 
 .close-button{
-  width: 80%;
+  width: 100%;
   background-color: #f976c7;
-  margin: auto;
+  /* margin: auto; */
+  padding: 6px;
 }
 
 .close-button:hover{
   background-color: #fc3796;
 }
 
+.button-container{
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.reset-button{
+  width: 100%;
+  background-color: #cccccc;
+  margin: auto;
+  padding: 6px;
+}
+
+.reset-button:hover{
+  background-color: #777777;
+}
 
