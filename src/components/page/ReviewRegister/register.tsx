@@ -1,34 +1,73 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, TextField , Box, Rating} from "@mui/material";
 import useReview from "hooks/useReview";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import "styles/review-register.css";
+import { ReviewRegisterTest } from "types/reviewRegister";
+import * as yup from 'yup'
 
 const register = () => {
-  const [food, setFood] = useState(''); // 텍스트 필드의 내용을 저장할 상태 변수
-  const [star, setStar] = useState<number | null>(0);
-
+  const [food, setFood] = useState('');
+  // 텍스트 필드의 내용을 저장할 상태 변수
   const { onCreateReview } = useReview();
 
-  const onSubmit = (event : React.FormEvent<HTMLFormElement>) => {
-    console.log("onsubmit")
-    event.preventDefault();
-    const img = star !== null ? star.toString() : '0'; // 평점을 문자열로 변환
-    onCreateReview({food, img});
-    console.log(`Food: ${food}, Img: ${img}`);
+  // 유효성 검사
+  const schema = yup.object().shape({
+
+    rating: yup
+    .number()
+    .typeError("숫자로 적어주세요")
+    .min(1, "평점을 입력해주세요")
+    .max(5, "5이하 값을 넣어주세요")
+    .required("평점을 입력해주세요"),
+    food: yup
+    .string()
+    .typeError("강의평을 입력해주세요")
+    .max(256, "256자 이내로 적어주세요")
+    .required("강의평을 입력해주세요"),
+
+  })
+
+
+  const {
+    setValue,
+    handleSubmit,
+    register,
+    formState: { errors, isValid },
+    reset, // 폼 초기화. reset
+    watch // watch 훅 추가
+  } = useForm<ReviewRegisterTest>({
+    mode: 'all',
+    resolver: yupResolver(schema),
+    defaultValues: {
+        rating: 0,
+        food: "",
+    }
+  })
+
+  const onSubmit = (data:ReviewRegisterTest) => {
+    onCreateReview({food:data.food, rating:data.rating})
+    reset()
+    // console.log(`Food: ${food}, Img: ${img}`);
   };
 
+  const ratingValue = watch("rating", 0) // rating값을 watch로 가져옵니다.
+
+
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
         <Box className="star-rating">
-            <Rating
-                name="course-rating"
-                value={star}
-                onChange={(event, newValue) => {
-                    setStar(newValue);
-                }}
-                size="large"
-                precision={1}
-            />
+          <Rating
+            name="course-rating"
+            value={ratingValue}
+            onChange={(event, newValue) => {
+              setValue("rating", newValue || 0);
+            }}
+            size="large"
+            precision={1}
+          />
+          {errors.rating && <p>{errors.rating.message}</p>}
         </Box>
         <TextField
           multiline
@@ -36,13 +75,13 @@ const register = () => {
           variant="filled"
           fullWidth
           placeholder="이 강의에 대한 총평을 작성해주세요."
-          value={food}
+          {...register('food')}
           className="rating-textarea"
-          onChange={(event) => setFood(event.target.value)} // 텍스트 필드 내용 업데이트
+          helperText={errors.food?.message}
         />
-        <Button className="submit-button" type="submit">평가하기</Button>
+        <Button className="submit-button" type="submit" >평가하기</Button>
     </form>
   );
 };
 
-export default register;
+export default register

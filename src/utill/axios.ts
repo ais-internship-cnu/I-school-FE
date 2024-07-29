@@ -8,7 +8,7 @@ import { mockCourses } from 'mocks/timetableMock'
 const ENV = process.env.NODE_ENV
 
 export const api = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_APP_API_URL,
+    baseURL: process.env.NEXT_PUBLIC_APP_API_URL
 })
 
 if (ENV === 'development') {

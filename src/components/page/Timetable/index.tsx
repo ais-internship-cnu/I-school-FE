@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Typography, Box } from '@mui/material';
 import useTimetable from 'hooks/useTimetable';
-import TimetableCard from './TimetableCard';
-import TimetableModal from './TimetableModal';
 import 'styles/timetable.css';
 import { useRouter } from 'next/navigation';
+import TimetableCard from './TimetableCard';
+import TimetableModal from './TimetableModal';
 
 const days = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 
@@ -128,7 +128,6 @@ const TimeTable = ({ }) => {
   const courseCodes = Array.from(new Set(timetableList.map((course: any) => course.courseCode)));
   const colorMap = generateColorMap(courseCodes);
 
-  // 클라이언트 렌더링 확인 후에만 렌더링
   if (!mounted) {
     return null;
   }

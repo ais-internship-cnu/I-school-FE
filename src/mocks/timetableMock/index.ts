@@ -8,7 +8,8 @@ export const mockCourses: Course[] = [
     courseRoom: '공7 - 118',
     courseDay: 'Monday',
     courseStartTime: '10:00',
-    courseEndTime: '12:30'
+    courseEndTime: '12:30',
+    professor: '남지승'
   },
   {
     courseId: 2,
@@ -17,7 +18,8 @@ export const mockCourses: Course[] = [
     courseRoom: '공7 - 218',
     courseDay: 'Tuesday',
     courseStartTime: '11:00',
-    courseEndTime: '12:30'
+    courseEndTime: '12:30',
+    professor: '박재형'
   },
   {
     courseId: 3,
@@ -26,7 +28,8 @@ export const mockCourses: Course[] = [
     courseRoom: '공7-218',
     courseDay: 'Wednesday',
     courseStartTime: '13:00',
-    courseEndTime: '14:30'
+    courseEndTime: '14:30',
+    professor: '이영우'
   },
   {
     courseId: 4,
@@ -35,7 +38,8 @@ export const mockCourses: Course[] = [
     courseRoom: '공7 - 118',
     courseDay: 'Wednesday',
     courseStartTime: '10:00',
-    courseEndTime: '12:30'
+    courseEndTime: '12:30',
+    professor: '남지승'
   },
   {
     courseId: 5,
@@ -44,7 +48,8 @@ export const mockCourses: Course[] = [
     courseRoom: '공7 - 218',
     courseDay: 'Thursday',
     courseStartTime: '11:00',
-    courseEndTime: '12:30'
+    courseEndTime: '12:30',
+    professor: '박재형'
   }
 ]
 

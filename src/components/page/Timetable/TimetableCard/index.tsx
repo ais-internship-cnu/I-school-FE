@@ -1,4 +1,3 @@
-// Timetable/TimetableCard/index.tsx
 import React from 'react'
 import { Card, CardContent, Typography } from '@mui/material'
 import { Course } from 'types/timetable'
@@ -25,6 +24,9 @@ const TimetableCard = ({ course, backgroundColor }: TimetableProps) => {
         <Typography className='course-room'>
           {course.courseRoom}
         </Typography>
+        {/* hidden input으로 courseCode와 professor를 추가 */}
+        <input type="hidden" value={course.courseCode} className="course-code" />
+        <input type="hidden" value={course.professor} className="course-professor" />
       </CardContent>
     </Card>
   )
