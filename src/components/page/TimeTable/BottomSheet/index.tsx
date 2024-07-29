@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
+import { Button, Drawer, TextField } from '@mui/material';
 import BottomSheetCourseBlock from './BottomSheetCourseBlock';
 import 'styles/bottom-sheet-style.css';
+import GradeModal from '../GradeSelect';
+import MajorModal from '../MajorSelect';
 
 interface BottomSheetCourse {
   courseName: string;
@@ -23,10 +25,27 @@ const mockCourses: BottomSheetCourse[] = [
     major: "컴퓨터공학",
     rating: 4.0,
   },
+  {
+    courseName: "운영체제",
+    professor: "박교수",
+    major: "컴퓨터공학",
+    rating: 4.0,
+  },
+  {
+    courseName: "운영체제",
+    professor: "박교수",
+    major: "컴퓨터공학",
+    rating: 4.0,
+  },
   // 더 많은 목 데이터를 추가할 수 있습니다.
 ];
 
-const BottomSheet: React.FC = () => {
+interface DrawerProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
   const [courses, setCourses] = useState(mockCourses);
   const [filteredCourses, setFilteredCourses] = useState(mockCourses);
   const [searchInput, setSearchInput] = useState('');
@@ -49,23 +68,53 @@ const BottomSheet: React.FC = () => {
     }
   };
 
+  // 전공, 학년 선택 버튼 누를 시 팝업 띄우기
+  const [showGradeModal, setShowGradeModal] = useState(false);
+  const [showMajorModal, setShowMajorModal2] = useState(false);
+
+  const toggleGradeModal = () => {
+    setShowGradeModal(!showGradeModal);
+  };
+  const toggleMajorModal = () => {
+    setShowMajorModal2(!showMajorModal);
+  };
+
+  const handleDrawerClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
+
   return (
-      <div className="bottom-sheet-container">
+    <Drawer
+      anchor="bottom"
+      open={open}
+      onClose={onClose}
+      sx={{
+        '& .MuiDrawer-paper': {
+          width: '353px', // 원하는 너비 설정
+          margin: 'auto', // 중앙 정렬
+          borderTopLeftRadius: '16px',
+          borderTopRightRadius: '16px',
+        }
+      }}
+    >
+      <div className="drawer-content" onClick={handleDrawerClick}>
         <div className="fix-top">
           <div className="top-section">
-            <Button 
-              variant="contained" 
-              className="button upper-button" 
-              // sx={{ fontSize: '12px', padding: '1px 4px', borderRadius: '8px', marginRight: '5px', backgroundColor:'#595959', width:'auto', textAlign: 'center', maxWidth: '80px' }}
+            <Button
+              onClick={toggleGradeModal}
+              variant="contained"
+              className="button upper-button"
             >
               전공
+              <GradeModal show={showGradeModal} onClose={toggleGradeModal} />
             </Button>
-            <Button 
-              variant="contained" 
-              className="button upper-button" 
-              // sx={{ fontSize: '12px', padding: '2px 6px', borderRadius: '8px', marginRight: '8px' }}
+            <Button
+              onClick={toggleMajorModal}
+              variant="contained"
+              className="button upper-button"
             >
               학년
+              <MajorModal show={showMajorModal} onClose={toggleMajorModal} />
             </Button>
             <input 
               type="text" 
@@ -88,8 +137,12 @@ const BottomSheet: React.FC = () => {
             />
           ))}
         </div>
+        <Button onClick={onClose} variant="contained" className='close-button'>
+          닫기
+        </Button>
       </div>
+    </Drawer>
   );
 };
 
-export default BottomSheet;
+export default CourseDrawer;
