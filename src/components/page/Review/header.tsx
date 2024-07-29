@@ -1,7 +1,18 @@
 import { Typography, Button, Grid, Link } from "@mui/material";
+import { useRouter } from 'next/navigation';
 import 'styles/review-register.css';
 
-const Header = () => {
+interface HeaderProps {
+  courseId: number;
+}
+
+const Header = ({ courseId }: HeaderProps) => {
+  const router = useRouter();
+
+  const handleReviewClick = () => {
+    router.push(`/review-register-page/${courseId}`);
+  };
+
   return (
     <Grid container className="header-container" alignItems="center">
       <Grid item xs={4}></Grid>
@@ -11,11 +22,9 @@ const Header = () => {
         </Typography>
       </Grid>
       <Grid item xs={4} container justifyContent="flex-end">
-        <Link href="#">
-          <Button variant="contained" className="rating-button">
-            평가하기
-          </Button>
-        </Link>
+        <Button variant="contained" className="rating-button" onClick={handleReviewClick}>
+          평가하기
+        </Button>
       </Grid>
     </Grid>
   );
