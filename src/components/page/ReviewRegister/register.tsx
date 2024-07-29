@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button, TextField , Box, Rating} from "@mui/material";
 import useReview from "hooks/useReview";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "styles/review-register.css";
@@ -12,7 +13,13 @@ const register = () => {
   // 텍스트 필드의 내용을 저장할 상태 변수
   const { onCreateReview } = useReview();
 
-  // 유효성 검사
+  const params = useParams();
+  const {courseId} = params;
+
+  // courseId를 number로 변환
+  const numericCourseId = Number(courseId);
+
+  // 유효성 검사 스키마
   const schema = yup.object().shape({
 
     rating: yup
@@ -29,7 +36,7 @@ const register = () => {
 
   })
 
-
+  // useForm 훅 사용
   const {
     setValue,
     handleSubmit,
@@ -46,8 +53,11 @@ const register = () => {
     }
   })
 
-  const onSubmit = (data:ReviewRegisterTest) => {
-    onCreateReview({food:data.food, rating:data.rating})
+  // 폼 제출 핸들러
+  const onSubmit = (data:ReviewRegisterTest) => { // 타입에 courseId를 추가한 게 아니라 post요청을 보낼 때 요청 데이터에 포함시켜
+    const postData = {...data, courseId:numericCourseId}
+    console.log(`Food: ${food}, Img: ${ratingValue}, courseId: ${numericCourseId}`)
+    onCreateReview(postData)
     reset()
     // console.log(`Food: ${food}, Img: ${img}`);
   };
