@@ -11,4 +11,3 @@ const BottomSheetSample: React.FC = () => (
 );
 
 export default BottomSheetSample;
-
