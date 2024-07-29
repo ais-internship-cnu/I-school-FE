@@ -21,7 +21,8 @@ const TimetableModal: React.FC<TimetableModalProps> = ({ open, handleClose, cour
   const handleReviewClick = () => {
     const courseCode = encodeURIComponent(course.courseCode);
     const professor = encodeURIComponent(course.professor);
-    router.push(`/review-page/${courseCode}/${professor}`);
+    const courseId = encodeURIComponent(course.courseId);
+    router.push(`/review-page/${courseCode}/${professor}/${courseId}`);
   };
 
   const handleExamInfoClick = () => {
