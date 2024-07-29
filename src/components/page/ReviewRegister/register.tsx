@@ -54,9 +54,10 @@ const register = () => {
   })
 
   // 폼 제출 핸들러
-  const onSubmit = (data:ReviewRegisterTest) => { // 타입에 courseId를 추가한 게 아니라 post요청을 보낼 때 요청 데이터에 포함시켜
-    const postData = {...data, courseId:numericCourseId}
-    console.log(`Food: ${food}, Img: ${ratingValue}, courseId: ${numericCourseId}`)
+  const onSubmit = (data:ReviewRegisterTest) => { 
+    // 타입에 courseId를 추가한 게 아니라 post요청을 보낼 때 요청 데이터에 포함시켜
+    const postData = {...data, course_id:numericCourseId}
+    console.log(`Food: ${food}, Img: ${ratingValue}, course_id: ${numericCourseId}`)
     onCreateReview(postData)
     reset()
     // console.log(`Food: ${food}, Img: ${img}`);
