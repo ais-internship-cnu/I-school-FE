@@ -8,14 +8,16 @@ interface BottomSheetCourseBlockProps {
   professor: string;
   major: string;
   rating: number;
+  grade: number;
 }
 
-const BottomSheetCourseBlock: React.FC<BottomSheetCourseBlockProps> = ({ courseName, professor, major, rating }) => {
+const BottomSheetCourseBlock: React.FC<BottomSheetCourseBlockProps> = ({ courseName, professor, major, rating, grade }) => {
   return (
     <div className="course-block">
       <h3>{courseName}</h3>
       <p>{professor} 교수님</p>
       <p>{major}</p>
+      <p>{grade}학년</p>
       <div className="rating-container">
         <Rating
           name="course-rating"
