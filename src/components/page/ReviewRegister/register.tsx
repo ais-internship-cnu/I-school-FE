@@ -5,11 +5,11 @@ import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "styles/review-register.css";
-import { ReviewRegisterTest } from "types/reviewRegister";
+import { ReviewRegister } from "types/reviewRegister";
 import * as yup from 'yup'
 
 const register = () => {
-  const [food, setFood] = useState('');
+  const [content, setFood] = useState('');
   // 텍스트 필드의 내용을 저장할 상태 변수
   const { onCreateReview } = useReview();
 
@@ -28,7 +28,7 @@ const register = () => {
     .min(1, "평점을 입력해주세요")
     .max(5, "5이하 값을 넣어주세요")
     .required("평점을 입력해주세요"),
-    food: yup
+    content: yup
     .string()
     .typeError("강의평을 입력해주세요")
     .max(256, "256자 이내로 적어주세요")
@@ -44,20 +44,20 @@ const register = () => {
     formState: { errors, isValid },
     reset, // 폼 초기화. reset
     watch // watch 훅 추가
-  } = useForm<ReviewRegisterTest>({
+  } = useForm<ReviewRegister>({
     mode: 'all',
     resolver: yupResolver(schema),
     defaultValues: {
         rating: 0,
-        food: "",
+        content: "",
     }
   })
 
   // 폼 제출 핸들러
-  const onSubmit = (data:ReviewRegisterTest) => { 
+  const onSubmit = (data:ReviewRegister) => { 
     // 타입에 courseId를 추가한 게 아니라 post요청을 보낼 때 요청 데이터에 포함시켜
     const postData = {...data, course_id:numericCourseId}
-    console.log(`Food: ${food}, Img: ${ratingValue}, course_id: ${numericCourseId}`)
+    console.log(`Food: ${content}, Img: ${ratingValue}, course_id: ${numericCourseId}`)
     onCreateReview(postData)
     reset()
     // console.log(`Food: ${food}, Img: ${img}`);
@@ -86,9 +86,9 @@ const register = () => {
           variant="filled"
           fullWidth
           placeholder="이 강의에 대한 총평을 작성해주세요."
-          {...register('food')}
+          {...register('content')}
           className="rating-textarea"
-          helperText={errors.food?.message}
+          helperText={errors.content?.message}
         />
         <Button className="submit-button" type="submit" >평가하기</Button>
     </form>
