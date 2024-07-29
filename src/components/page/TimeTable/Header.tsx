@@ -1,10 +1,18 @@
-import { Typography, Grid, IconButton, Box } from "@mui/material"
-import ScheduleIcon from '@mui/icons-material/Schedule'
-import SettingsIcon from '@mui/icons-material/Settings'
-import AddIcon from '@mui/icons-material/Add'
-import 'styles/timetable.css'
+import { Typography, Grid, IconButton, Box, Drawer } from "@mui/material";
+import ScheduleIcon from '@mui/icons-material/Schedule';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AddIcon from '@mui/icons-material/Add';
+import 'styles/timetable.css';
+import { useState } from "react";
+import CourseDrawer from "./BottomSheet"; // CourseDrawer는 BottomSheet에서 변경된 컴포넌트
 
 const Header = () => {
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+    const toggleDrawer = () => {
+        setIsDrawerOpen(!isDrawerOpen);
+    };
+
     return (
         <div>
             <Grid container alignItems="center" justifyContent="space-between" className="header">
@@ -17,8 +25,9 @@ const Header = () => {
                     </Typography>
                 </Typography>
                 <div>
-                    <IconButton>
+                    <IconButton onClick={toggleDrawer}>
                         <AddIcon />
+                        <CourseDrawer open={isDrawerOpen} onClose={toggleDrawer} />
                     </IconButton>
                     <IconButton>
                         <SettingsIcon />
@@ -28,8 +37,10 @@ const Header = () => {
                     </IconButton>
                 </div>
             </Grid>
-        </div>
-    )
-}
 
-export default Header
+            
+        </div>
+    );
+};
+
+export default Header;
