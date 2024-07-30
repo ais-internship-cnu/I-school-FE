@@ -1,16 +1,16 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, TextField , Box, Rating} from "@mui/material";
+import { yupResolver } from "@hookform/resolvers/yup"; // yup을 사용하여 폼 유효성 검사
+import { Button, TextField , Box, Rating} from "@mui/material"; // Material-UI
 import useReview from "hooks/useReview";
-import { useParams } from "next/navigation";
+import { useParams } from "next/navigation"; // Next.js에서 URL 파라미터를 가져오는 훅
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "styles/review-register.css";
-import { ReviewRegister } from "types/reviewRegister";
-import * as yup from 'yup'
+import { ReviewRegister } from "types/reviewRegister"; // 타입 불러오기
+import * as yup from 'yup' // 폼 유효성 검사를 위한 라이브러리
 
+// 리뷰 등록 폼 컴포넌트 정의
 const register = () => {
-  const [content, setFood] = useState('');
-  // 텍스트 필드의 내용을 저장할 상태 변수
+  const [content] = useState('');   // 텍스트 필드의 내용을 저장할 상태 변수, 초기값 설정
   const { onCreateReview } = useReview();
 
   const params = useParams();
