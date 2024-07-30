@@ -1,49 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, Drawer, TextField } from '@mui/material';
 import BottomSheetCourseBlock from './BottomSheetCourseBlock';
 import 'styles/bottom-sheet-style.css';
 import GradeModal from '../GradeSelect';
 import MajorModal from '../MajorSelect';
-
-interface BottomSheetCourse {
-  courseName: string;
-  professor: string;
-  major: string;
-  rating: number;
-  grade: number;
-}
-
-const mockCourses: BottomSheetCourse[] = [
-  {
-    courseName: "데이터베이스",
-    professor: "김교수",
-    major: "인공지능학부",
-    rating: 4.5,
-    grade: 3,
-  },
-  {
-    courseName: "운영체제",
-    professor: "박교수",
-    major: "소프트웨어공학과",
-    rating: 4.0,
-    grade: 1,
-  },
-  {
-    courseName: "운영체제",
-    professor: "박교수",
-    major: "전자컴퓨터공학과",
-    rating: 4.0,
-    grade: 2,
-  },
-  {
-    courseName: "운영체제",
-    professor: "박교수",
-    major: "자율전공학부",
-    rating: 4.0,
-    grade: 4,
-  },
-  // 더 많은 목 데이터를 추가할 수 있습니다.
-];
+import useBottomSheetCourseList from 'hooks/useBottomSheetCourse'; // 훅을 임포트합니다
+import { BottomSheetCourse } from 'types/bottomSheetCourses'; // 타입 임포트
 
 interface DrawerProps {
   open: boolean;
@@ -51,22 +13,38 @@ interface DrawerProps {
 }
 
 const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
-  const [courses, setCourses] = useState(mockCourses);
-  const [filteredCourses, setFilteredCourses] = useState(mockCourses);
+  const { bottomSheetCourseList, fetchAllBottomSheetCourses } = useBottomSheetCourseList(); // 훅 사용
+  const [filteredCourses, setFilteredCourses] = useState<BottomSheetCourse[]>([]);
   const [searchInput, setSearchInput] = useState('');
   const [selectedGrade, setSelectedGrade] = useState<number | null>(null);
   const [selectedMajor, setSelectedMajor] = useState<string | null>(null);
   const [gradeButtonText, setGradeButtonText] = useState<string>('학년');
   const [majorButtonText, setMajorButtonText] = useState<string>('전공');
   const [showGradeModal, setShowGradeModal] = useState(false);
-  const [showMajorModal, setShowMajorModal2] = useState(false);
+  const [showMajorModal, setShowMajorModal] = useState(false);
+
+  useEffect(() => {
+    if (bottomSheetCourseList.length === 0) {
+      fetchAllBottomSheetCourses();
+    }
+  }, [fetchAllBottomSheetCourses, bottomSheetCourseList.length]);
+
+  // 필터링 로직 최적화
+  useEffect(() => {
+    if (bottomSheetCourseList.length > 0) {
+      applyFilters(selectedGrade, selectedMajor);
+    }
+  }, [bottomSheetCourseList, selectedGrade, selectedMajor]);
+
+
+
 
   const truncateMajorName = (major: string): string => {
     return major.length > 3 ? `${major.slice(0, 3)}..` : major;
   };
 
   const handleSearch = (searchTerm: string) => {
-    const filtered = courses.filter(course =>
+    const filtered = bottomSheetCourseList.filter((course) =>
       course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       course.professor.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -86,8 +64,9 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
   const toggleGradeModal = () => {
     setShowGradeModal(!showGradeModal);
   };
+
   const toggleMajorModal = () => {
-    setShowMajorModal2(!showMajorModal);
+    setShowMajorModal(!showMajorModal);
   };
 
   const handleGradeSelect = (grade: number) => {
@@ -103,15 +82,15 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
   };
 
   const applyFilters = (grade: number | null, major: string | null) => {
-    let filtered = courses;
-
+    let filtered: BottomSheetCourse[] = bottomSheetCourseList || [];
+  
     if (grade !== null) {
       filtered = filtered.filter(course => course.grade === grade);
     }
     if (major !== null) {
       filtered = filtered.filter(course => course.major === major);
     }
-
+  
     setFilteredCourses(filtered);
   };
 
@@ -124,7 +103,7 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
     setGradeButtonText('학년');
     setSelectedMajor(null);
     setMajorButtonText('전공');
-    setFilteredCourses(courses);
+    setFilteredCourses(bottomSheetCourseList);
   };
 
   return (

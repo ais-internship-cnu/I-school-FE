@@ -16,8 +16,7 @@ const Courses: React.FC<{ courses: Course[] }> = ({ courses }) => (
         <CourseBlock
           courseName={course.courseName}
           professor={course.professor}
-          rating={course.rating}
-        />
+          rating={course.rating} courseId={0}        />
       </Grid>
     ))}
   </Grid>

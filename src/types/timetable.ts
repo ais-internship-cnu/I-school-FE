@@ -15,5 +15,6 @@ export type Course = {
   };
   
   export type TimetableState = {
+    courseList: any;
     timetableList: Course[]
 }
