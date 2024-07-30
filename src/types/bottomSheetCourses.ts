@@ -1,5 +1,5 @@
 export type BottomSheetCourse = {
-    courseId: number;
+    courseId: string;
     courseName: string;
     professor: string;
     major: string;
