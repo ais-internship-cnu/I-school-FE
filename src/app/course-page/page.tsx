@@ -16,12 +16,17 @@ const CoursesPage = () => {
 
   useEffect(() => {
     fetchAllCourses(); // 컴포넌트가 마운트될 때 강의 목록을 가져옵니다.
-  }, [fetchAllCourses]);
-
+  }, []); // 빈 배열로 변경하여 최초 마운트 시에만 호출
+  
   useEffect(() => {
-    handleSearch(searchInput); // 검색 입력이 변경될 때마다 필터링
-  }, [searchInput, courseList]);
-
+    handleSearch(searchInput); // 검색 입력이 변경될 때 필터링
+  }, [searchInput]); // searchInput이 변경될 때만 호출
+  
+  // courseList가 변경될 때 필터링
+  useEffect(() => {
+    handleSearch(searchInput); // courseList가 변경될 때에도 필터링
+  }, [courseList]);
+    
   const handleSearch = (searchTerm: string) => {
     const filtered = courseList.filter(course =>
       course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||

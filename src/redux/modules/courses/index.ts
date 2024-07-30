@@ -10,12 +10,8 @@ export const fetchCourses = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get(API.COURSE_LIST); // API endpoint 수정
-      return response.data.data.courses.map((course: any) => ({
-        courseId: course.course_id,
-        courseName: course.courseName,
-        professor: course.professor,
-        rating: course.rating,
-      }));
+      return response.data;
+      
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.');
     }
