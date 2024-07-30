@@ -1,6 +1,7 @@
-import { Typography, Button, Grid, Link } from "@mui/material";
+import { Typography, Button, Grid, IconButton } from "@mui/material";
 import { useRouter } from 'next/navigation';
 import 'styles/review-register.css';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 interface HeaderProps {
   courseId: number;
@@ -13,9 +14,17 @@ const Header = ({ courseId }: HeaderProps) => {
     router.push(`/review-register-page/${courseId}`);
   };
 
+  const handleBackClick = () => {
+    router.back();
+  };
+
   return (
     <Grid container className="header-container" alignItems="center">
-      <Grid item xs={4}></Grid>
+      <Grid item xs={4} container justifyContent="flex-start">
+        <IconButton onClick={handleBackClick}>
+          <ArrowBackIosNewIcon/>
+        </IconButton>
+      </Grid>
       <Grid item xs={4} container justifyContent="center">
         <Typography variant="h6" className="rating-title">
           강의평

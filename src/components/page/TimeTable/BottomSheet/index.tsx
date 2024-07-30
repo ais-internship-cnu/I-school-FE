@@ -127,8 +127,6 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
     setFilteredCourses(courses);
   };
 
-  
-
   return (
     <Drawer
       anchor="bottom"
@@ -173,16 +171,22 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
           </div>
         </div>
         <div className="courses-container">
-          {filteredCourses.map((course, index) => (
-            <BottomSheetCourseBlock
-              key={index}
-              courseName={course.courseName}
-              professor={course.professor}
-              major={course.major}
-              rating={course.rating}
-              grade={course.grade}
-            />
-          ))}
+          {filteredCourses.length > 0 ? (
+            filteredCourses.map((course, index) => (
+              <BottomSheetCourseBlock
+                key={index}
+                courseName={course.courseName}
+                professor={course.professor}
+                major={course.major}
+                rating={course.rating}
+                grade={course.grade}
+              />
+            ))
+          ) : (
+            <div className="no-results-message">
+              해당 조건의 강의는 없습니다.
+            </div>
+          )}
         </div>
         <div className="button-container">
           <Button onClick={resetFilters} variant="contained" className='reset-button'>

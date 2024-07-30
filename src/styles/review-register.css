@@ -44,3 +44,10 @@
     justify-content: center;
     margin: 0 auto;
 }
+
+.register-header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px;
+}
