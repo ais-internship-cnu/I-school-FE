@@ -3,6 +3,7 @@ import { API } from 'constant/api';
 import { RootState } from 'redux/store';
 import { Courses, Course } from 'types/courses';
 import { api } from 'utill/axios';
+import { snakeToCamel } from 'utill/convertType';
 
 // 비동기 thunk 생성
 export const fetchCourses = createAsyncThunk(
@@ -10,8 +11,8 @@ export const fetchCourses = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get(API.COURSE_LIST); // API endpoint 수정
-      return response.data;
-      
+      const convertObject = snakeToCamel(response.data)
+      return convertObject      
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.');
     }

@@ -5,13 +5,15 @@ import { ReviewState } from 'types/review'
 import { postData } from 'types/reviewRegister'
 import { api } from 'utill/axios'
 import { AxiosError } from 'axios';
+import { snakeToCamel } from 'utill/convertType'
 
 export const createReviewList = createAsyncThunk(
   'review/createReviewList',
   async (data: { courseName: string, professor: string }, { rejectWithValue }) => {
     try {
       const response = await api.get(API.COURSER_REVIEW, { params: { course_name: data.courseName, professor: data.professor } });
-      return response.data;
+      const convertObject = snakeToCamel(response.data)
+      return convertObject;
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.');
     }
