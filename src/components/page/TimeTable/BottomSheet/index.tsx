@@ -10,32 +10,37 @@ interface BottomSheetCourse {
   professor: string;
   major: string;
   rating: number;
+  grade: number;
 }
 
 const mockCourses: BottomSheetCourse[] = [
   {
     courseName: "데이터베이스",
     professor: "김교수",
-    major: "컴퓨터공학",
+    major: "인공지능학부",
     rating: 4.5,
+    grade: 3,
   },
   {
     courseName: "운영체제",
     professor: "박교수",
-    major: "컴퓨터공학",
+    major: "소프트웨어공학과",
     rating: 4.0,
+    grade: 1,
   },
   {
     courseName: "운영체제",
     professor: "박교수",
-    major: "컴퓨터공학",
+    major: "전자컴퓨터공학과",
     rating: 4.0,
+    grade: 2,
   },
   {
     courseName: "운영체제",
     professor: "박교수",
-    major: "컴퓨터공학",
+    major: "자율전공학부",
     rating: 4.0,
+    grade: 4,
   },
   // 더 많은 목 데이터를 추가할 수 있습니다.
 ];
@@ -49,6 +54,16 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
   const [courses, setCourses] = useState(mockCourses);
   const [filteredCourses, setFilteredCourses] = useState(mockCourses);
   const [searchInput, setSearchInput] = useState('');
+  const [selectedGrade, setSelectedGrade] = useState<number | null>(null);
+  const [selectedMajor, setSelectedMajor] = useState<string | null>(null);
+  const [gradeButtonText, setGradeButtonText] = useState<string>('학년');
+  const [majorButtonText, setMajorButtonText] = useState<string>('전공');
+  const [showGradeModal, setShowGradeModal] = useState(false);
+  const [showMajorModal, setShowMajorModal2] = useState(false);
+
+  const truncateMajorName = (major: string): string => {
+    return major.length > 3 ? `${major.slice(0, 3)}..` : major;
+  };
 
   const handleSearch = (searchTerm: string) => {
     const filtered = courses.filter(course =>
@@ -68,10 +83,6 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
     }
   };
 
-  // 전공, 학년 선택 버튼 누를 시 팝업 띄우기
-  const [showGradeModal, setShowGradeModal] = useState(false);
-  const [showMajorModal, setShowMajorModal2] = useState(false);
-
   const toggleGradeModal = () => {
     setShowGradeModal(!showGradeModal);
   };
@@ -79,9 +90,44 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
     setShowMajorModal2(!showMajorModal);
   };
 
+  const handleGradeSelect = (grade: number) => {
+    setSelectedGrade(grade);
+    setGradeButtonText(`${grade}학년`);
+    applyFilters(grade, selectedMajor);
+  };
+
+  const handleMajorSelect = (major: string) => {
+    setSelectedMajor(major);
+    setMajorButtonText(truncateMajorName(major));
+    applyFilters(selectedGrade, major);
+  };
+
+  const applyFilters = (grade: number | null, major: string | null) => {
+    let filtered = courses;
+
+    if (grade !== null) {
+      filtered = filtered.filter(course => course.grade === grade);
+    }
+    if (major !== null) {
+      filtered = filtered.filter(course => course.major === major);
+    }
+
+    setFilteredCourses(filtered);
+  };
+
   const handleDrawerClick = (event: React.MouseEvent) => {
     event.stopPropagation();
   };
+
+  const resetFilters = () => {
+    setSelectedGrade(null);
+    setGradeButtonText('학년');
+    setSelectedMajor(null);
+    setMajorButtonText('전공');
+    setFilteredCourses(courses);
+  };
+
+  
 
   return (
     <Drawer
@@ -105,16 +151,16 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
               variant="contained"
               className="button upper-button"
             >
-              전공
-              <GradeModal show={showGradeModal} onClose={toggleGradeModal} />
+              {gradeButtonText}
+              <GradeModal show={showGradeModal} onClose={toggleGradeModal} onGradeSelect={handleGradeSelect} />
             </Button>
             <Button
               onClick={toggleMajorModal}
               variant="contained"
               className="button upper-button"
             >
-              학년
-              <MajorModal show={showMajorModal} onClose={toggleMajorModal} />
+              {majorButtonText}
+              <MajorModal show={showMajorModal} onClose={toggleMajorModal} onMajorSelect={handleMajorSelect} />
             </Button>
             <input 
               type="text" 
@@ -134,12 +180,18 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
               professor={course.professor}
               major={course.major}
               rating={course.rating}
+              grade={course.grade}
             />
           ))}
         </div>
-        <Button onClick={onClose} variant="contained" className='close-button'>
-          닫기
-        </Button>
+        <div className="button-container">
+          <Button onClick={resetFilters} variant="contained" className='reset-button'>
+            초기화
+          </Button>
+          <Button onClick={onClose} variant="contained" className='close-button'>
+            닫기
+          </Button>
+        </div>
       </div>
     </Drawer>
   );

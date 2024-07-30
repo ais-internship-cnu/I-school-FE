@@ -6,7 +6,7 @@ import 'styles/bottom-sheet-style.css';
 
 const BottomSheetSample: React.FC = () => (
   <div className="page-container">
-    {/* <BottomSheet /> */}
+    <BottomSheet />
   </div>
 );
 
