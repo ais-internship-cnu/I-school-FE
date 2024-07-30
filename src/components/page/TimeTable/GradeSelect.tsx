@@ -6,9 +6,15 @@ import 'styles/select-modal.css';
 interface ModalProps {
   show: boolean;
   onClose: () => void;
+  onGradeSelect: (grade: number) => void;
 }
 
-const GradeModal: React.FC<ModalProps> = ({ show, onClose }) => {
+const GradeModal: React.FC<ModalProps> = ({ show, onClose, onGradeSelect }) => {
+  const handleGradeClick = (grade: number) => {
+    onGradeSelect(grade);
+    onClose();
+  };
+
   return (
     <MuiModal
       open={show}
@@ -24,17 +30,14 @@ const GradeModal: React.FC<ModalProps> = ({ show, onClose }) => {
         <div className="modalContent">
           <h3>학년</h3>
           <ul id="modal-description">
-            <li>1학년</li>
-            <li>2학년</li>
-            <li>3학년</li>
-            <li>4학년</li>
-            <li>5학년</li>
-            <li>6학년</li>
+            {[1, 2, 3, 4, 5, 6].map(grade => (
+              <li key={grade} onClick={() => handleGradeClick(grade)}>{grade}학년</li>
+            ))}
           </ul>
         </div>
       </Box>
     </MuiModal>
   );
-}
+};
 
 export default GradeModal;

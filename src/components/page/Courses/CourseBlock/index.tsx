@@ -5,12 +5,13 @@ import { Rating, Typography, Box } from "@mui/material";
 interface CourseBlockProps {
   courseName: string;
   professor: string;
+  courseId: number;
   rating: number;
 }
 
-const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating }) => {
+const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating, courseId }) => {
   const handleClick = () => {
-    window.location.href = `/review-page/${courseName}/${professor}`;
+    window.location.href = `/review-page/${courseName}/${professor}/${courseId}`;
   };
 
   return (
