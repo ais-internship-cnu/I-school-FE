@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, Drawer, TextField } from '@mui/material';
 import BottomSheetCourseBlock from './BottomSheetCourseBlock';
 import 'styles/bottom-sheet-style.css';
@@ -24,12 +24,20 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
   const [showMajorModal, setShowMajorModal] = useState(false);
 
   useEffect(() => {
-    fetchAllBottomSheetCourses();
-  }, [fetchAllBottomSheetCourses]);
+    if (bottomSheetCourseList.length === 0) {
+      fetchAllBottomSheetCourses();
+    }
+  }, [fetchAllBottomSheetCourses, bottomSheetCourseList.length]);
 
+  // 필터링 로직 최적화
   useEffect(() => {
-    applyFilters(selectedGrade, selectedMajor);
+    if (bottomSheetCourseList.length > 0) {
+      applyFilters(selectedGrade, selectedMajor);
+    }
   }, [bottomSheetCourseList, selectedGrade, selectedMajor]);
+
+
+
 
   const truncateMajorName = (major: string): string => {
     return major.length > 3 ? `${major.slice(0, 3)}..` : major;
