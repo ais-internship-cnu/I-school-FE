@@ -11,6 +11,7 @@ export const fetchCourses = createAsyncThunk(
     try {
       const response = await api.get(API.COURSE_LIST); // API endpoint 수정
       return response.data.data.courses.map((course: any) => ({
+        courseId: course.course_id,
         courseName: course.courseName,
         professor: course.professor,
         rating: course.rating,
