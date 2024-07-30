@@ -18,7 +18,8 @@ export const createTimetableList = createAsyncThunk(
 
 // 初期状態を正義
 const initialState: TimetableState = {
-  timetableList : []
+  timetableList: [],
+  courseList: undefined
 }
 
 // slice生成

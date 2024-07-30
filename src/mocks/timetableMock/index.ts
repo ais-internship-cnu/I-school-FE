@@ -59,5 +59,6 @@ export const mockTimetable: Timetable = {
 }
 
 export const mockTimetableState: TimetableState = {
-  timetableList: mockCourses
+  timetableList: mockCourses,
+  courseList: undefined
 }
