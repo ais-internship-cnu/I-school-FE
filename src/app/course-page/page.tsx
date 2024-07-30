@@ -18,9 +18,9 @@ const CoursesPage = () => {
     fetchAllCourses(); // 컴포넌트가 마운트될 때 강의 목록을 가져옵니다.
   }, []); // 빈 배열로 변경하여 최초 마운트 시에만 호출
   
-  useEffect(() => {
-    handleSearch(searchInput); // 검색 입력이 변경될 때 필터링
-  }, [searchInput]); // searchInput이 변경될 때만 호출
+  // useEffect(() => {
+  //   handleSearch(searchInput); // 검색 입력이 변경될 때 필터링
+  // }, [searchInput]); // searchInput이 변경될 때만 호출
   
   // courseList가 변경될 때 필터링
   useEffect(() => {
