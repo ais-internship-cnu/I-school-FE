@@ -21,7 +21,7 @@ const Review = ({ courseName, professor }: ReviewProps) => {
   }, [courseName, professor]);
 
   return (
-    <Grid container style={{ height: 'calc(100vh - 112px)', overflowY: 'auto' }}>
+    <Grid container className="review-container">
       {reviewList.map((item: CourseReview) => (
         <Box key={item.courseReviewId} className="review-card-wrapper">
           <ReviewCard review={item} />
