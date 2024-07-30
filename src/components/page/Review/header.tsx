@@ -4,7 +4,7 @@ import 'styles/review-register.css';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 interface HeaderProps {
-  courseId: number;
+  courseId: string;
 }
 
 const Header = ({ courseId }: HeaderProps) => {
