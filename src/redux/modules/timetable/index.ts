@@ -3,13 +3,16 @@ import { API } from 'constant/api'
 import { RootState } from 'redux/store'
 import { TimetableState } from 'types/timetable'
 import { api } from 'utill/axios'
+import { snakeToCamel } from 'utill/convertType'
 
 export const createTimetableList = createAsyncThunk(
   'timetable/createTimetableList',
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get(API.SHOW_TIMETABLE)
-      return response.data
+      const convertObject = snakeToCamel(response.data)
+      console.log(convertObject)
+      return convertObject
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.')
     }
