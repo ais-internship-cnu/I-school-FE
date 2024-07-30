@@ -1,6 +1,7 @@
 export const API = {
   PRACTICE_TEST: '/visit-record',
   COURSER_REVIEW: '/api/v1/courses',
+  COURSE_LIST: '/api/v1/courses',
   SHOW_TIMETABLE: '/api/v1/course-timetables',
   // 라우터 설정. 나중에 api 명세서에 맞게 바꿔주기
   // 환경변수에서 설정해주기
