@@ -12,8 +12,6 @@ const StyledBottomNavigation = styled(BottomNavigation)({
 });
 
 const StyledBottomNavigationAction = styled(BottomNavigationAction)(({ theme }) => ({
-  minWidth: '100px',
-  maxWidth: '100px',
   '&.selected': {
     color: '#ff69b4',
     '& .MuiBottomNavigationAction-label': {

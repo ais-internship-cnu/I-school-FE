@@ -36,6 +36,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0px 16px;
+    margin: 0px;
 }
 
 .rating-title {
@@ -55,7 +56,8 @@
 }
 
 .review-container {
-    height: calc(100vh - 112px); /* Adjust this value if necessary to match your navigation height */
+    height: calc(100vh - 150px); /* Adjust this value if necessary to match your navigation height */
     overflow-y: auto;
-    padding-bottom: 112px; /* Ensure content doesn't overlap with navigation */
+    overflow-x: hidden;
+    padding-bottom: 60px; /* Ensure content doesn't overlap with navigation */
   }
