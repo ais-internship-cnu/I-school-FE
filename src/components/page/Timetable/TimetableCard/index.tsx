@@ -27,6 +27,7 @@ const TimetableCard = ({ course, backgroundColor }: TimetableProps) => {
         {/* hidden input으로 courseCode와 professor를 추가 */}
         <input type="hidden" value={course.courseCode} className="course-code" />
         <input type="hidden" value={course.professor} className="course-professor" />
+        <input type="hidden" value={course.courseId} className="course-id" />
       </CardContent>
     </Card>
   )
