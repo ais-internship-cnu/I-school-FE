@@ -158,8 +158,7 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
                 professor={course.professor}
                 major={course.major}
                 rating={course.rating}
-                grade={course.grade}
-              />
+                grade={course.grade} courseId={course.courseId}              />
             ))
           ) : (
             <div className="no-results-message">
