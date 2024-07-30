@@ -197,3 +197,7 @@
   background-color: #777777;
 }
 
+.no-results-message{
+  text-align: center;
+  margin: 16px;
+}
