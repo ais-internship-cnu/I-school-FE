@@ -8,6 +8,6 @@ export type BottomSheetCourse = {
 };
 
 export type BottomSheetCourses = {
-    courseList: BottomSheetCourse[];
+    bottomSheetCourseList: BottomSheetCourse[];
   }
 

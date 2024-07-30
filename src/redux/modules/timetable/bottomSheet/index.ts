@@ -20,18 +20,18 @@ export const createBottomSheetCourseList = createAsyncThunk(
 
 // 초기 상태 정의
 const initialState: BottomSheetCourses = {
-  courseList : [],
+  bottomSheetCourseList : [],
 };
 
 // slice 생성
 export const createBottomSheetCourseListSlice = createSlice({
-  name: 'courses',
+  name: 'bottomSheetCourse',
   initialState,
   reducers: {},
   extraReducers: builder => {
     builder
       .addCase(createBottomSheetCourseList.fulfilled, (state, action) => {
-        state.courseList = action.payload;
+        state.bottomSheetCourseList = action.payload;
       })
       .addCase(createBottomSheetCourseList.rejected, (state, action) => {
         console.error(action.payload); // 에러 로그
@@ -40,6 +40,6 @@ export const createBottomSheetCourseListSlice = createSlice({
 });
 
 // selector 정의
-export const selectBottomSheetCourses = (state: RootState) => state.courses.courseList;
+export const selectBottomSheetCourses = (state: RootState) => state.bottomSheetCourses.bottomSheetCourseList;
 
 export default createBottomSheetCourseListSlice.reducer;
