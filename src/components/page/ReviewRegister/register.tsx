@@ -90,7 +90,7 @@ const register = () => {
           className="rating-textarea"
           helperText={errors.content?.message}
         />
-        <Button className="submit-button" type="submit" >평가하기</Button>
+        <Button className="submit-button" type="submit" >등록</Button>
     </form>
   );
 };
