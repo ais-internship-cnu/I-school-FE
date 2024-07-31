@@ -45,10 +45,12 @@ const BottomSheetCourseBlock: React.FC<BottomSheetCourseBlockProps> = ({ courseN
 };
 
 BottomSheetCourseBlock.propTypes = {
+  courseId: PropTypes.string.isRequired,
   courseName: PropTypes.string.isRequired,
   professor: PropTypes.string.isRequired,
   major: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
+  grade: PropTypes.number.isRequired,
 };
 
 export default BottomSheetCourseBlock;

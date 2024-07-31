@@ -11,6 +11,7 @@ const Header = () => {
 
     const toggleDrawer = () => {
         setIsDrawerOpen(!isDrawerOpen);
+        console.log('clicked')
     };
 
     return (

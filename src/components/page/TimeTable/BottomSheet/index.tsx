@@ -24,10 +24,22 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
   const [showMajorModal, setShowMajorModal] = useState(false);
 
   // useEffect(() => {
-  //   if (bottomSheetCourseList.length === 0) {
+  //   console.log('bottomSheetCourseList length:', bottomSheetCourseList.length)
+  //   if (open && bottomSheetCourseList.length === 0) {
   //     fetchAllBottomSheetCourses();
+  //     console.log('Fetching courses...')
   //   }
   // }, [fetchAllBottomSheetCourses, bottomSheetCourseList.length]);
+
+  useEffect(() => {
+    if (open && bottomSheetCourseList.length === 0) {
+      // `open` 상태가 `true`일 때만 데이터 요청
+      fetchAllBottomSheetCourses().then(() => {
+        // 데이터가 로드된 후 필터링 등의 추가 작업 수행 가능
+        setFilteredCourses(bottomSheetCourseList);
+      });
+    }
+  }, [open, fetchAllBottomSheetCourses, bottomSheetCourseList]);
 
   // 필터링 로직 최적화
   useEffect(() => {
@@ -38,14 +50,13 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
 
 
 
-
   const truncateMajorName = (major: string): string => {
     return major.length > 3 ? `${major.slice(0, 3)}..` : major;
   };
 
   const handleSearch = (searchTerm: string) => {
     const filtered = bottomSheetCourseList.filter((course) =>
-      course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      course.course_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       course.professor.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredCourses(filtered);
@@ -154,11 +165,12 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
             filteredCourses.map((course, index) => (
               <BottomSheetCourseBlock
                 key={index}
-                courseName={course.courseName}
+                courseName={course.course_name}
                 professor={course.professor}
                 major={course.major}
                 rating={course.rating}
-                grade={course.grade} courseId={course.courseId}              />
+                grade={course.grade} 
+                courseId={course.course_id[0]}/>
             ))
           ) : (
             <div className="no-results-message">
