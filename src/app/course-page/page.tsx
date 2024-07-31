@@ -6,12 +6,10 @@ import Courses from 'components/page/Courses';
 import CourseSearcher from 'components/page/Courses/CourseSearcher';
 import useCourse from 'hooks/useCourse'; // useCourse 훅을 임포트합니다.
 import { Course } from 'types/courses'; // Course 타입 임포트
-// import 'styles/common.css';
 import 'styles/course-search-style.css';
 import Header from 'components/page/Courses/BackButton';
 
 const CoursesPage = () => {
-  console.log("aaaaaaaaaaaaaaa123")
   const { courseList, fetchAllCourses } = useCourse();
   const [filteredCourses, setFilteredCourses] = useState<Course[]>([]); // 타입 지정
   const [searchInput, setSearchInput] = useState(''); // 타입 지정

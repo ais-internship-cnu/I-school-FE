@@ -8,7 +8,6 @@ interface Course {
   professor: string;
   rating: number;
   courseId: number;
-  courseCode: string;
 }
 
 const Courses: React.FC<{ courses: Course[] }> = ({ courses }) => (
@@ -18,7 +17,7 @@ const Courses: React.FC<{ courses: Course[] }> = ({ courses }) => (
         <CourseBlock
           courseName={course.courseName}
           professor={course.professor}
-          rating={course.rating} courseId={0} courseCode={course.courseCode}        />
+          rating={course.rating} courseId={course.courseId}      />
       </Grid>
     ))}
   </Grid>

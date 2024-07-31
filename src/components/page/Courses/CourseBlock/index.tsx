@@ -7,12 +7,12 @@ interface CourseBlockProps {
   professor: string;
   courseId: number;
   rating: number;
-  courseCode: string;
 }
 
-const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating, courseCode }) => {
+const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating, courseId }) => {
   const handleClick = () => {
-    window.location.href = `/review-page/${courseName}/${professor}/${courseCode}`;
+    const firstCourseId = courseId.toString()[0];
+    window.location.href = `/review-page/${courseName}/${professor}/${firstCourseId}`;
   };
 
   return (
