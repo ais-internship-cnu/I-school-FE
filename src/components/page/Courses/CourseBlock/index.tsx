@@ -11,7 +11,8 @@ interface CourseBlockProps {
 
 const CourseBlock: React.FC<CourseBlockProps> = ({ courseName, professor, rating, courseId }) => {
   const handleClick = () => {
-    window.location.href = `/review-page/${courseName}/${professor}/${courseId}`;
+    const firstCourseId = courseId.toString()[0];
+    window.location.href = `/review-page/${courseName}/${professor}/${firstCourseId}`;
   };
 
   return (
