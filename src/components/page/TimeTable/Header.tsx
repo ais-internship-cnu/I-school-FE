@@ -16,6 +16,7 @@ const Header = () => {
             fetchAllBottomSheetCourses(); // Drawer가 열릴 때마다 API를 호출합니다.
         }
         setIsDrawerOpen(!isDrawerOpen);
+        console.log('clicked')
     };
 
     return (
