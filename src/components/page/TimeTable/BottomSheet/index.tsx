@@ -23,11 +23,11 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
   const [showGradeModal, setShowGradeModal] = useState(false);
   const [showMajorModal, setShowMajorModal] = useState(false);
 
-  useEffect(() => {
-    if (bottomSheetCourseList.length === 0) {
-      fetchAllBottomSheetCourses();
-    }
-  }, [fetchAllBottomSheetCourses, bottomSheetCourseList.length]);
+  // useEffect(() => {
+  //   if (bottomSheetCourseList.length === 0) {
+  //     fetchAllBottomSheetCourses();
+  //   }
+  // }, [fetchAllBottomSheetCourses, bottomSheetCourseList.length]);
 
   // 필터링 로직 최적화
   useEffect(() => {
