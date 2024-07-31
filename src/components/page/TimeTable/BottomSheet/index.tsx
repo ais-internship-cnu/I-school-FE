@@ -34,10 +34,12 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
   };
 
   const handleSearch = (searchTerm: string) => {
+    
     const filtered = bottomSheetCourseList.filter((course) =>
       course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       course.professor.toLowerCase().includes(searchTerm.toLowerCase())
     );
+    console.log(filtered)
     setFilteredCourses(filtered);
   };
 
