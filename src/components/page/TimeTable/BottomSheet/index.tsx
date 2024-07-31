@@ -29,7 +29,7 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
     } else {
       fetchAllBottomSheetCourses();
     }
-  }, [bottomSheetCourseList, selectedGrade, selectedMajor, fetchAllBottomSheetCourses]);
+  }, [bottomSheetCourseList, selectedGrade, selectedMajor]);
 
   const truncateMajorName = (major: string): string => {
     return major.length > 3 ? `${major.slice(0, 3)}..` : major;

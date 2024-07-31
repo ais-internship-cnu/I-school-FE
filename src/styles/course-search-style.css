@@ -34,7 +34,10 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+    text-align: center;
+    flex-grow: 1; /* Ensure the header takes available space */
   }
+  
 
   .fix-top {
     flex-direction: row;
@@ -120,3 +123,9 @@
   top: 10px;
   left: 10px;
 }  
+
+.header-container {
+  position: relative;
+  display: flex;
+  padding: 10px;
+}
