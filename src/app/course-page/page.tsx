@@ -11,29 +11,31 @@ import 'styles/course-search-style.css';
 import Header from 'components/page/Courses/BackButton';
 
 const CoursesPage = () => {
-  const {courseList, fetchAllCourses} = useCourse();
+  console.log("aaaaaaaaaaaaaaa123")
+  const { courseList, fetchAllCourses } = useCourse();
   const [filteredCourses, setFilteredCourses] = useState<Course[]>([]); // 타입 지정
   const [searchInput, setSearchInput] = useState(''); // 타입 지정
 
   useEffect(() => {
     fetchAllCourses(); // 컴포넌트가 마운트될 때 강의 목록을 가져옵니다.
   }, []); // 빈 배열로 변경하여 최초 마운트 시에만 호출
-  
-  // useEffect(() => {
-  //   handleSearch(searchInput); // 검색 입력이 변경될 때 필터링
-  // }, [searchInput]); // searchInput이 변경될 때만 호출
-  
-  // courseList가 변경될 때 필터링
+
   useEffect(() => {
     handleSearch(searchInput); // courseList가 변경될 때에도 필터링
   }, [courseList]);
-    
+
   const handleSearch = (searchTerm: string) => {
-    const filtered = courseList.filter(course =>
-      course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      course.professor.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredCourses(filtered);
+   
+    if (Array.isArray(courseList)) { // courseList가 배열인지 확인
+      const filtered = courseList.filter(course =>
+        course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        course.professor.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredCourses(filtered);
+    } else {
+      console.error('courseList is not an array', courseList);
+      setFilteredCourses([]); // 배열이 아닌 경우 빈 배열 설정
+    }
   };
 
   const handleTextInputChange = (value: string) => {

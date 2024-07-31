@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { API } from 'constant/api';
 import { RootState } from 'redux/store';
-import { Courses, Course } from 'types/courses';
+import { Courses } from 'types/courses';
 import { api } from 'utill/axios';
 import { snakeToCamel } from 'utill/convertType';
 
@@ -11,8 +11,9 @@ export const fetchCourses = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get(API.COURSE_LIST); // API endpoint 수정
-      const convertObject = snakeToCamel(response.data)
-      return convertObject      
+      const convertObject = snakeToCamel(response.data);
+      console.log(convertObject.data.courses,"777")
+      return convertObject.data.courses;
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.');
     }
