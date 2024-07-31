@@ -10,26 +10,20 @@ export const createTimetableList = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get(API.SHOW_TIMETABLE)
-      console.log(response.data)
       const convertObject = snakeToCamel(response.data)
-      console.log(convertObject)
-      return {
-        timetableList: convertObject.timetableList || [],
-        courseList: convertObject.courseList || []
-      }
+      return convertObject
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.')
     }
   }
 )
 
-// 초기 상태 정의
+// 初期状態を正義
 const initialState: TimetableState = {
-  timetableList: [],
-  courseList: []
+  timetableList : []
 }
 
-// slice 생성
+// slice生成
 export const timetableSlice = createSlice({
   name: 'timetable',
   initialState,
@@ -37,17 +31,14 @@ export const timetableSlice = createSlice({
   extraReducers: builder => {
     builder
       .addCase(createTimetableList.fulfilled, (state, action) => {
-        state.timetableList = action.payload.timetableList
-        state.courseList = action.payload.courseList
+        state.timetableList = action.payload
       })
       .addCase(createTimetableList.rejected, (state) => {
         state.timetableList = []
-        state.courseList = []
       })
   }
 })
-
-// selector 정의
+// selector定義
 export const timetableSelector = (state: RootState) => state.timetable
 
 export default timetableSlice.reducer

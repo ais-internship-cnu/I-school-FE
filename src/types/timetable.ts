@@ -1,21 +1,19 @@
 export type Course = {
-  courseId: number[];
+  courseId: number;
   courseCode: string;
   courseName: string;
   courseRoom: string;
-  courseDay: string[];
-  courseStartTime: string[];
-  courseEndTime: string[];
+  courseDay: string;
+  courseStartTime: string;
+  courseEndTime: string;
   professor: string;
-  major: string;
 };
 
-export type TimetableData = {
-  timetableName: string;
+export type Timetable = {
+  timetalbeId: number;
   courses: Course[];
 };
 
 export type TimetableState = {
-  courseList: Course[];
-  timetableList: Course[];
-};
+  timetableList: Course[]
+}
