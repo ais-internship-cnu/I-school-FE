@@ -6,6 +6,10 @@ export type Course = {
     courseCode: string,
 }
 
+export type PostCourse = {
+    courseCode: string,
+}
+
 export type Courses = {
     courseList: Course[];
   }
