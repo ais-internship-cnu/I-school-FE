@@ -3,8 +3,6 @@ import { Button, Rating } from '@mui/material';
 import 'styles/bottom-sheet-style.css';
 import { useRouter } from 'next/navigation';
 import { BottomSheetCourse } from 'types/bottomSheetCourses';
-import { postCourseCode } from 'redux/modules/timetable';
-import { useDispatch } from 'redux/store';
 
 interface BottomSheetCourseBlockProps {
   course: BottomSheetCourse;
@@ -12,15 +10,13 @@ interface BottomSheetCourseBlockProps {
 
 const BottomSheetCourseBlock: React.FC<BottomSheetCourseBlockProps> = ({ course }) => {
   const router = useRouter();
-  const dispatch = useDispatch();
 
-  const handleReviewClick = (courseName: string, professor: string, courseId: number) => {
-    router.push(`/review-page/${encodeURIComponent(courseName)}/${encodeURIComponent(professor)}/${encodeURIComponent(courseId)}`);
-  };
-
-  const handlePostCourseCode = (courseCode: string) => {
-    dispatch(postCourseCode({courseCode:courseCode}));
-    console.log({courseCode:courseCode})
+  const handleReviewClick = (encodedCourseName: string, encodedProfessor: string, encodedCourseId: number) => {
+    const courseName = decodeURIComponent(encodedCourseName);
+    const professor = decodeURIComponent(encodedProfessor);
+    const courseId = decodeURIComponent(encodedCourseId.toString());
+    
+    router.push(`/review-page/${courseName}/${professor}/${courseId}`);
   };
 
   return (
@@ -38,8 +34,8 @@ const BottomSheetCourseBlock: React.FC<BottomSheetCourseBlockProps> = ({ course 
           sx={{ fontSize: '1rem' }}
         />
         <div className="action-buttons">
-          <Button className="action-button" onClick={() => handleReviewClick(course.courseName, course.professor, course.courseId)}>강의평</Button>
-          <Button onClick={() => handlePostCourseCode(course.courseCode)}className="course-button">추가하기</Button>
+          <Button className="action-button" onClick={() => handleReviewClick(encodeURIComponent(course.courseName), encodeURIComponent(course.professor), course.courseId)}>강의평</Button>
+          <Button className="course-button">추가하기</Button>
         </div>
       </div>
     </div>

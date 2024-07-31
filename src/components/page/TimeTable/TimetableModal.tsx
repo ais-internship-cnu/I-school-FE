@@ -32,11 +32,11 @@ const TimetableModal: React.FC<TimetableModalProps> = ({ open, handleClose, cour
   const handleDeleteClick = async () => {
     setIsDeleting(true);
     try {
-      await axios.delete(`/api/v1/timetables/1`, {
+      await axios.request({
+        method: 'DELETE',
+        url: `http://3.27.241.70:8000/api/v1/timetables/1`,
         data: {
-          userId: 1,
-          timetableId: 1,
-          code: course.code,
+          courseCode: course.courseCode,
         },
       });
       console.log(`수업 삭제: ${course.courseName} - ${course.professor}`);
