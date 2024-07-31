@@ -50,8 +50,12 @@ const CoursesPage = () => {
     <Page title="CoursesPage">
       <div className="component-arrangement">
         <div className="fix-top">
-          {/* <div><Header></Header></div> */}
-          <div className="header">강의실</div>
+          <div className="header-container">
+            <div className="arrow-icon">
+              <Header /> {/* 화살표 아이콘 컴포넌트 */}
+            </div>
+            <div className="header">강의실</div>
+          </div>
           <div className="search-container-alignment">
             <CourseSearcher 
               placeholder="교수명, 강의명 검색"  
@@ -67,6 +71,7 @@ const CoursesPage = () => {
       </div>
     </Page>
   );
+  
 }
 
 export default CoursesPage;

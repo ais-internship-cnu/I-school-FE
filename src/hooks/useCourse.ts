@@ -8,7 +8,6 @@ const useCourse = () => {
 
   // courses 상태를 선택합니다.
   const courseList = useSelector((state: RootState) => state.courses.courseList);
-  console.log(courseList, 3)
 
   // 비동기 액션을 디스패치합니다.
   const fetchAllCourses = () => {

@@ -115,4 +115,8 @@
     background: #555; /* 스크롤바 호버 색상 */
 }
 
-  
+.arrow-icon{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}  

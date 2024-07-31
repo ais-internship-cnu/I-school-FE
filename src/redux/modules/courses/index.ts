@@ -12,7 +12,7 @@ export const fetchCourses = createAsyncThunk(
     try {
       const response = await api.get(API.COURSE_LIST); // API endpoint 수정
       const convertObject = snakeToCamel(response.data);
-      console.log(convertObject.data.courses,"777")
+      console.log(convertObject.data.courses)
       return convertObject.data.courses;
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.');
