@@ -1,11 +1,12 @@
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from 'redux/store'
+// hooks/useReview.ts
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from 'redux/store';
 import {
-  createCourseReview, // 정빈 추가 부분(액션 크리에이터)
+  createCourseReview,
   createReviewList, 
   reviewSelector,
-} from 'redux/modules/review'
-import { postData } from 'types/reviewRegister' // post로 제출되는 타입
+} from 'redux/modules/review';
+import { postData } from 'types/reviewRegister';
 
 const useReview = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,12 +18,9 @@ const useReview = () => {
     dispatch(createReviewList({ courseName, professor }));
   };
 
-  // 정빈 추가 부분 (onCreateReview 함수) -> redux로 post요청 보내는 얘.
-  // postData타입의 객체를 매개변수로 받아서 createCourseReview액션을 디스패치
-  const onCreateReview = ({content, rating, course_id}:postData ) => {
-    dispatch(createCourseReview({content, rating, course_id}))
-    // console.log("before dispatch" + food + rating)
-  }
+  const onCreateReview = ({ content, rating, course_id }: postData ) => {
+    dispatch(createCourseReview({ content, rating, course_id }));
+  };
 
   return {
     onCreateReviewList,
