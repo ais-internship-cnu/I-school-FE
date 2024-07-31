@@ -12,7 +12,7 @@ export const createBottomSheetCourseList = createAsyncThunk(
     try {
       const response = await api.get(API.COURSE_LIST); // API endpoint 수정
       const convertObject = snakeToCamel(response.data)
-      return convertObject;
+      return convertObject.data.courses;
       
     } catch (error) {
       return rejectWithValue(error instanceof Error ? error.message : 'An error has occurred.');
