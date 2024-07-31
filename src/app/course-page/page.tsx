@@ -8,6 +8,7 @@ import useCourse from 'hooks/useCourse'; // useCourse 훅을 임포트합니다.
 import { Course } from 'types/courses'; // Course 타입 임포트
 import 'styles/common.css';
 import 'styles/course-search-style.css';
+import Header from 'components/page/Courses/BackButton';
 
 const CoursesPage = () => {
   const {courseList, fetchAllCourses} = useCourse();
@@ -49,6 +50,7 @@ const CoursesPage = () => {
     <Page title="CoursesPage">
       <div className="component-arrangement">
         <div className="fix-top">
+          <div><Header></Header></div>
           <div className="header">강의실</div>
           <div className="search-container-alignment">
             <CourseSearcher 
