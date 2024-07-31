@@ -13,7 +13,7 @@ interface DrawerProps {
 }
 
 const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
-  const { bottomSheetCourseList } = useBottomSheetCourseList();
+  const { bottomSheetCourseList, fetchAllBottomSheetCourses } = useBottomSheetCourseList();
   const [filteredCourses, setFilteredCourses] = useState<BottomSheetCourse[]>([]);
   const [searchInput, setSearchInput] = useState<string>('');
   const [selectedGrade, setSelectedGrade] = useState<number | null>(null);
@@ -26,8 +26,10 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
   useEffect(() => {
     if (bottomSheetCourseList.length > 0) {
       applyFilters(selectedGrade, selectedMajor);
+    } else {
+      fetchAllBottomSheetCourses();
     }
-  }, [bottomSheetCourseList, selectedGrade, selectedMajor]);
+  }, [bottomSheetCourseList, selectedGrade, selectedMajor, fetchAllBottomSheetCourses]);
 
   const truncateMajorName = (major: string): string => {
     return major.length > 3 ? `${major.slice(0, 3)}..` : major;
@@ -142,8 +144,7 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
         <div className="courses-container">
           {filteredCourses.length > 0 ? (
             filteredCourses.map((course) => (
-              <BottomSheetCourseBlock
-              />
+              <BottomSheetCourseBlock key={course.courseId} course={course} />
             ))
           ) : (
             <div className="no-results-message">
