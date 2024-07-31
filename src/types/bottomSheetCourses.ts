@@ -1,17 +1,24 @@
+// export type BottomSheetCourse = {
+//     courseId: string;
+//     courseName: string;
+//     professor: string;
+//     major: string;
+//     grade: number;
+//     rating: number;
+// };
 export type BottomSheetCourse = {
-    course_id: string[];
-    course_code: string;
-    course_name: string;
+    courseId: number;
+    courseCode: string;
+    courseName: string;
+    courseRoom: string;
+    courseDay: string;
+    courseStartTime: string;
+    courseEndTime: string;
     professor: string;
-    major: string;  // 추가된 major 필드
-    grade: number;
-    credit: number;
-    course_day: string[];
-    course_start_time: string[];
-    course_end_time: string[];
-    course_room: string;
     rating: number;
-};
+    grade: number;
+    major: string;
+  };
 
 export type BottomSheetCourses = {
     bottomSheetCourseList: BottomSheetCourse[];

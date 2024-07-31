@@ -1,15 +1,20 @@
-import { Typography, Grid, IconButton, Box, Drawer } from "@mui/material";
+import { Typography, Grid, IconButton, Box } from "@mui/material";
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AddIcon from '@mui/icons-material/Add';
 import 'styles/timetable.css';
 import { useState } from "react";
 import CourseDrawer from "./BottomSheet"; // CourseDrawer는 BottomSheet에서 변경된 컴포넌트
+import useBottomSheetCourseList from 'hooks/useBottomSheetCourse'; // hook을 가져옵니다.
 
 const Header = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const { fetchAllBottomSheetCourses } = useBottomSheetCourseList(); // hook에서 fetch 함수를 가져옵니다.
 
     const toggleDrawer = () => {
+        if (!isDrawerOpen) {
+            fetchAllBottomSheetCourses(); // Drawer가 열릴 때마다 API를 호출합니다.
+        }
         setIsDrawerOpen(!isDrawerOpen);
         console.log('clicked')
     };
@@ -24,7 +29,6 @@ const Header = () => {
                 <div>
                     <IconButton onClick={toggleDrawer}>
                         <AddIcon />
-                        <CourseDrawer open={isDrawerOpen} onClose={toggleDrawer} />
                     </IconButton>
                     <IconButton>
                         <SettingsIcon />
@@ -34,8 +38,7 @@ const Header = () => {
                     </IconButton>
                 </div>
             </Grid>
-
-            
+            <CourseDrawer open={isDrawerOpen} onClose={toggleDrawer} />
         </div>
     );
 };
