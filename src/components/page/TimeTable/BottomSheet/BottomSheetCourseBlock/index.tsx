@@ -3,15 +3,23 @@ import { Button, Rating } from '@mui/material';
 import 'styles/bottom-sheet-style.css';
 import { useRouter } from 'next/navigation';
 import useBottomSheetCourseList from 'hooks/useBottomSheetCourse';
+import { AppDispatch, useDispatch } from 'redux/store';
+import { postCourseCode } from 'redux/modules/timetable';
 
 const BottomSheetCourseBlock = () => {
   const router = useRouter();
   const { fetchAllBottomSheetCourses, bottomSheetCourseList } = useBottomSheetCourseList();
+  const dispatch = useDispatch();
 
   const handleReviewClick = () => {
     bottomSheetCourseList.map(c => {
       router.push(`/review-page/${encodeURIComponent(c.courseName)}/${encodeURIComponent(c.professor)}/${encodeURIComponent(c.courseId)}`);
     });
+  };
+
+  const handlePostCourseCode = (courseCode: string) => {
+    dispatch(postCourseCode({courseCode:courseCode}));
+    console.log({courseCode:courseCode})
   };
 
   useEffect(() => {
@@ -37,7 +45,7 @@ const BottomSheetCourseBlock = () => {
           />
           <div className="action-buttons">
             <Button className="action-button" onClick={handleReviewClick}>강의평</Button>
-            <Button className="course-button">추가하기</Button>
+            <Button onClick={() => handlePostCourseCode(c.courseCode)} className="course-button">추가하기</Button>
           </div>
         </div>
       </div>
