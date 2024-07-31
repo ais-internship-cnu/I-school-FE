@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Drawer, TextField } from '@mui/material';
 import BottomSheetCourseBlock from './BottomSheetCourseBlock';
 import 'styles/bottom-sheet-style.css';
 import GradeModal from '../GradeSelect';
 import MajorModal from '../MajorSelect';
-import useBottomSheetCourseList from 'hooks/useBottomSheetCourse'; // 훅을 임포트합니다
-import { BottomSheetCourse } from 'types/bottomSheetCourses'; // 타입 임포트
+import useBottomSheetCourseList from 'hooks/useBottomSheetCourse';
+import { BottomSheetCourse } from 'types/bottomSheetCourses';
 
 interface DrawerProps {
   open: boolean;
@@ -13,31 +13,21 @@ interface DrawerProps {
 }
 
 const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
-  const { bottomSheetCourseList, fetchAllBottomSheetCourses } = useBottomSheetCourseList(); // 훅 사용
+  const { bottomSheetCourseList } = useBottomSheetCourseList();
   const [filteredCourses, setFilteredCourses] = useState<BottomSheetCourse[]>([]);
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState<string>('');
   const [selectedGrade, setSelectedGrade] = useState<number | null>(null);
   const [selectedMajor, setSelectedMajor] = useState<string | null>(null);
   const [gradeButtonText, setGradeButtonText] = useState<string>('학년');
   const [majorButtonText, setMajorButtonText] = useState<string>('전공');
-  const [showGradeModal, setShowGradeModal] = useState(false);
-  const [showMajorModal, setShowMajorModal] = useState(false);
+  const [showGradeModal, setShowGradeModal] = useState<boolean>(false);
+  const [showMajorModal, setShowMajorModal] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (bottomSheetCourseList.length === 0) {
-      fetchAllBottomSheetCourses();
-    }
-  }, [fetchAllBottomSheetCourses, bottomSheetCourseList.length]);
-
-  // 필터링 로직 최적화
   useEffect(() => {
     if (bottomSheetCourseList.length > 0) {
       applyFilters(selectedGrade, selectedMajor);
     }
   }, [bottomSheetCourseList, selectedGrade, selectedMajor]);
-
-
-
 
   const truncateMajorName = (major: string): string => {
     return major.length > 3 ? `${major.slice(0, 3)}..` : major;
@@ -113,8 +103,8 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
       onClose={onClose}
       sx={{
         '& .MuiDrawer-paper': {
-          width: '353px', // 원하는 너비 설정
-          margin: 'auto', // 중앙 정렬
+          width: '353px',
+          margin: 'auto',
           borderTopLeftRadius: '16px',
           borderTopRightRadius: '16px',
         }
@@ -151,14 +141,9 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
         </div>
         <div className="courses-container">
           {filteredCourses.length > 0 ? (
-            filteredCourses.map((course, index) => (
+            filteredCourses.map((course) => (
               <BottomSheetCourseBlock
-                key={index}
-                courseName={course.courseName}
-                professor={course.professor}
-                major={course.major}
-                rating={course.rating}
-                grade={course.grade} courseId={course.courseId}              />
+              />
             ))
           ) : (
             <div className="no-results-message">
