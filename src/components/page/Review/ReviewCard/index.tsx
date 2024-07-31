@@ -1,3 +1,4 @@
+// Review/ReviewCard/index.tsx
 import { Card, CardContent, Typography } from "@mui/material";
 import { CourseReview } from "types/review";
 import 'styles/review.css';
