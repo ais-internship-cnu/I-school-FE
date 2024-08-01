@@ -21,12 +21,12 @@ const HomeButton = () => {
                 </div>
             </div>
             <div className='home-wrapper'>
-                <div className="home-button">
-                    <Link href="/course-page" className='home-link-align'>
+                <Link href='/course-page' className='home-link-align' >
+                    <div  className="home-button" style={{width: '300px'}} >
                         <img src="img/stack-of-books.png" alt="강의평" />
-                        강의평
-                    </Link>
-                </div>
+                            강의평
+                    </div>
+                </Link>
             </div>
         </div> 
     )
