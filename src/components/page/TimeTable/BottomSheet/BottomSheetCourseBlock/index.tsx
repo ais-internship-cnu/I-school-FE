@@ -11,7 +11,7 @@ interface BottomSheetCourseBlockProps {
 const BottomSheetCourseBlock: React.FC<BottomSheetCourseBlockProps> = ({ course }) => {
   const router = useRouter();
 
-  const handleReviewClick = (courseName: string, professor: string, courseId: number) => {
+  const handleReviewClick = (courseName: string, professor: string, courseId: string) => {
     router.push(`/review-page/${encodeURIComponent(courseName)}/${encodeURIComponent(professor)}/${encodeURIComponent(courseId)}`);
   };
 
@@ -30,7 +30,7 @@ const BottomSheetCourseBlock: React.FC<BottomSheetCourseBlockProps> = ({ course 
           sx={{ fontSize: '1rem' }}
         />
         <div className="action-buttons">
-          <Button className="action-button" onClick={() => handleReviewClick(course.courseName, course.professor, course.courseId)}>강의평</Button>
+          <Button className="action-button" onClick={() => handleReviewClick(course.courseName, course.professor, course.courseId.toString()[0])}>강의평</Button>
           <Button className="course-button">추가하기</Button>
         </div>
       </div>
