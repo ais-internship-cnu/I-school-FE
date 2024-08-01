@@ -37,7 +37,7 @@ const CourseDrawer: React.FC<DrawerProps> = ({ open, onClose }) => {
 
   const handleSearch = (searchTerm: string) => {
     
-    const filtered = bottomSheetCourseList.filter((course) =>
+    const filtered = bottomSheetCourseList.filter((course: { courseName: string; professor: string; }) =>
       course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||
       course.professor.toLowerCase().includes(searchTerm.toLowerCase())
     );
