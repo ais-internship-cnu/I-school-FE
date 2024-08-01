@@ -1,10 +1,10 @@
 {
   "/_not-found": "app/_not-found.js",
-  "/page": "app/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/home-page/page": "app/home-page/page.js",
-  "/course-page/page": "app/course-page/page.js",
-  "/review-register-page/[courseId]/page": "app/review-register-page/[courseId]/page.js",
+  "/page": "app/page.js",
   "/review-page/[course_name]/[professor]/[course_id]/page": "app/review-page/[course_name]/[professor]/[course_id]/page.js",
-  "/timetable-page/page": "app/timetable-page/page.js"
+  "/review-register-page/[courseId]/page": "app/review-register-page/[courseId]/page.js",
+  "/timetable-page/page": "app/timetable-page/page.js",
+  "/course-page/page": "app/course-page/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js"
 }
