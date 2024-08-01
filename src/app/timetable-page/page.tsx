@@ -5,7 +5,6 @@ import NavBar from 'components/page/Home/NavBar'
 import TimeTable from 'components/page/TimeTable'
 import Header from 'components/page/TimeTable/Header'
 
-
 const TimetablePage = () => (
   <Page title="TimetablePage">
     <Header />
