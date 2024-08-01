@@ -14,8 +14,12 @@ const BottomSheetCourseBlock: React.FC<BottomSheetCourseBlockProps> = ({ course 
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const handleReviewClick = (courseName: string, professor: string, courseId: number) => {
-    router.push(`/review-page/${encodeURIComponent(courseName)}/${encodeURIComponent(professor)}/${encodeURIComponent(courseId)}`);
+  const handleReviewClick = (encodedCourseName: string, encodedProfessor: string, encodedCourseId: string) => {
+    const courseName = decodeURIComponent(encodedCourseName);
+    const professor = decodeURIComponent(encodedProfessor);
+    const courseId = decodeURIComponent(encodedCourseId.toString());
+    
+    router.push(`/review-page/${courseName}/${professor}/${courseId}`);
   };
 
   const handlePostCourseCode = (courseCode: string) => {
@@ -38,7 +42,7 @@ const BottomSheetCourseBlock: React.FC<BottomSheetCourseBlockProps> = ({ course 
           sx={{ fontSize: '1rem' }}
         />
         <div className="action-buttons">
-          <Button className="action-button" onClick={() => handleReviewClick(course.courseName, course.professor, course.courseId)}>강의평</Button>
+          <Button className="action-button" onClick={() => handleReviewClick(course.courseName, course.professor, course.courseId.toString()[0])}>강의평</Button>
           <Button onClick={() => handlePostCourseCode(course.courseCode)}className="course-button">추가하기</Button>
         </div>
       </div>
